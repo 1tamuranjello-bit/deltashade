@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DeltaShade｜写真の歯の色を Lab と ΔE で比べる</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:title" content="DeltaShade">
+<meta property="og:description" content="写真の歯の色を Lab 値と ΔE（CIEDE2000）で比べる、歯科技工士のためのシェード比較アプリ。Mac・Windows 対応。">
+<meta property="og:image" content="https://deltashade.app/icon.png">
+<meta name="description" content="写真の歯の色を Lab 値と ΔE（CIEDE2000）で比べる、歯科技工士のためのシェード比較アプリ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html"><b>DeltaShade</b><span>シェード比較アプリ</span></a>
+    <nav class="top" aria-label="ページ内">
+      <a href="#features">機能</a>
+      <a href="#windows">Windows</a>
+      <a href="#how">使い方</a>
+      <a href="#accuracy">精度</a>
+      <a href="#price">価格</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Shade comparison for dental technicians</p>
+      <h1>写真の歯の色を、<br><em>Lab 値と ΔE</em> で比べる。</h1>
+      <p class="lead">プレビューや Photoshop で開いた口腔内写真の上にカーソルを置くだけ。写真をクリックしても隠れずに、カーソルのすぐ横に L・a・b が出続け、キー操作ひとつで基準点との色差（CIEDE2000）がわかります。</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#price">¥2,000 で購入</a>
+        <a class="btn ghost" href="#how">使い方を見る</a>
+      </div>
+      <div class="platforms">
+        <span class="platform">Mac（Apple シリコン）</span>
+        <span class="platform">Windows 11</span>
+        <span class="platform">9 言語</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+    <div class="scene" role="img" aria-label="DeltaShade を使っている画面のイメージ。写真の前歯にカーソルを置くと、横に Lab 値と基準点との ΔE が出て、右上に比較ウィンドウが浮いている">
+      <div class="menubar-mock" aria-hidden="true"><span class="apple">●</span><span>プレビュー</span><span class="dim">ファイル　編集　表示</span><span class="spacer"></span><svg class="de-glyph" viewBox="0 0 18 18"><path d="M2.5 14 L6.5 4 L10.5 14 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><text x="11" y="14" font-family="Georgia, serif" font-size="9.5" font-style="italic" font-weight="700" fill="currentColor">E</text></svg><span class="dim">10:42</span></div>
+      <div class="viewer" aria-hidden="true">
+        <div class="viewer-bar"><i></i><i></i><i></i><span>IMG_2041.jpg</span></div>
+        <div class="viewer-body">
+          <img class="smile" src="assets/smile.jpg" alt="" width="1400" height="933">
+          <div class="ref-mark" style="left:40%;top:45.9%"><span>基準点</span></div>
+          <div class="cursor" id="hv-cursor" style="left:76.2%;top:45.9%"><svg width="16" height="22" viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+          <div class="overlay flip" id="hv-overlay" style="left:76.2%;top:45.9%">
+            <div class="de"><span>ΔE00</span><em class="de-blue" id="hv-de">2.91</em></div>
+            <div class="row">
+              <div class="chip" id="hv-chip" style="background:#f0ddc3"></div>
+              <table>
+                <tr><td>L</td><td id="hv-L">89.38</td><td class="diff" id="hv-dL">(−2.56)</td></tr>
+                <tr><td>a</td><td id="hv-a">3.53</td><td class="diff" id="hv-da">(+0.73)</td></tr>
+                <tr><td>b</td><td id="hv-b">15.13</td><td class="diff" id="hv-db">(+3.81)</td></tr>
+              </table>
+            </div></div>
+          </div>
+        </div>
+      <div class="mini-compare" aria-hidden="true">
+        <div class="mc-title">比較</div>
+        <div class="mc-labels"><span>基準点</span><span>現在</span></div>
+        <div class="mc-swatches"><div style="background:#f4e5d2"></div><div id="mc-cur" style="background:#f0ddc3"></div></div>
+        <table>
+          <tr><th></th><th>基準</th><th>差分</th><th>現在</th></tr>
+          <tr><td>L</td><td>91.94</td><td class="d" id="mc-dL">−2.56</td><td id="mc-L">89.38</td></tr>
+          <tr><td>a</td><td>2.80</td><td class="d" id="mc-da">+0.73</td><td id="mc-a">3.53</td></tr>
+          <tr><td>b</td><td>11.32</td><td class="d" id="mc-db">+3.81</td><td id="mc-b">15.13</td></tr>
+        </table>
+        <div class="mc-total"><span>ΔE00</span><b class="de-blue" id="mc-de">2.91</b></div>
+      </div>
+    </div>
+    <ol class="scene-steps">
+      <li><span class="step-key"><kbd>Shift</kbd><kbd>Shift</kbd></span>基準にしたい歯で 2 度押し</li>
+      <li><span class="step-key"><svg viewBox="0 0 14 20" aria-hidden="true"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="currentColor"/></svg><span class="arrow">→</span></span>比べたい歯へカーソルを動かすだけ</li>
+      <li><span class="step-key"><span class="de-green">ΔE</span></span>カーソル横と比較ウィンドウに色差が出る</li>
+    </ol>
+    </div>
+  </section>
+</div>
+
+<section class="block" id="front">
+  <div class="wrap">
+    <p class="eyebrow">Always in front</p>
+    <h2>写真をクリックしても、数値は隠れない</h2>
+    <p class="sub">デジタルカラーメーターは普通のウィンドウなので、写真のウィンドウをクリックすると後ろに隠れてしまいます。DeltaShade の数値は、いつもカーソルのすぐ横、一番手前に出ています。</p>
+    <div class="front-demo" role="img" aria-label="写真のウィンドウをクリックすると、デジタルカラーメーターのウィンドウは写真の後ろに隠れるが、DeltaShade の数値と比較ウィンドウは手前に出たままになる様子">
+      <figure class="fd-panel">
+        <figcaption><span class="tag">デジタルカラーメーター</span></figcaption>
+        <div class="fd-desk">
+          <div class="fd-photo fd-raise"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><img src="assets/smile.jpg" alt=""></div>
+          <div class="fd-meter"><div class="fd-bar"><i></i><i></i><i></i>カラーメーター</div><div class="fd-meter-body"><div class="fd-mag" style="background:#f0ddc3"></div><div class="fd-vals">L* 89.4<br>a* 3.5<br>b* 15.1</div></div></div>
+          <div class="fd-cursor"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="fd-click"></div>
+          <p class="fd-note bad">写真をクリックすると、数値のウィンドウが後ろに隠れる</p>
+        </div>
+      </figure>
+      <figure class="fd-panel">
+        <figcaption><span class="tag ours">DeltaShade</span></figcaption>
+        <div class="fd-desk">
+          <div class="fd-photo fd-raise"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><img src="assets/smile.jpg" alt=""></div>
+          <div class="fd-cursor"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="fd-click"></div>
+          <div class="fd-ds"><div class="de"><span>ΔE00</span><em class="de-blue">2.91</em></div><div class="row"><div class="chip" style="background:#f0ddc3"></div><table><tr><td>L</td><td>89.38</td><td class="diff">(−2.56)</td></tr><tr><td>a</td><td>3.53</td><td class="diff">(+0.73)</td></tr><tr><td>b</td><td>15.13</td><td class="diff">(+3.81)</td></tr></table></div></div>
+          <div class="fd-compare">
+            <div class="fdc-title">比較</div>
+            <div class="fdc-labels"><span>基準点</span><span>現在</span></div>
+            <div class="fdc-sw"><div style="background:#f4e5d2"></div><div class="fdc-cur" style="background:#f0ddc3"></div></div>
+            <table>
+              <tr><th></th><th>基準</th><th>差分</th><th>現在</th></tr>
+              <tr><td>L</td><td>91.94</td><td class="d fdc-dL">−2.56</td><td class="fdc-L">89.38</td></tr>
+              <tr><td>a</td><td>2.80</td><td class="d fdc-da">+0.73</td><td class="fdc-a">3.53</td></tr>
+              <tr><td>b</td><td>11.32</td><td class="d fdc-db">+3.81</td><td class="fdc-b">15.13</td></tr>
+            </table>
+            <div class="fdc-de">ΔE00 <b class="de-blue">2.91</b></div>
+          </div>
+          <p class="fd-note good">クリックしても、数値と比較ウィンドウは手前に出たまま</p>
+        </div>
+      </figure>
+    </div>
+    <div class="versus">
+      <div class="vs-card">
+        <span class="tag">デジタルカラーメーター</span>
+        <ul>
+          <li>数値は画面の隅の別ウィンドウに出る</li>
+          <li>写真を拡大・移動しようとクリックすると、後ろに隠れる</li>
+          <li>数値を見るたびに、ウィンドウを探して前に出し直す</li>
+        </ul>
+      </div>
+      <div class="vs-card ours">
+        <span class="tag">DeltaShade</span>
+        <ul>
+          <li>数値はカーソルのすぐ横に出る。視線を動かさずに読める</li>
+          <li>写真をクリックしても、常に一番手前に表示されたまま</li>
+          <li>比較ウィンドウも手前に浮かび続けるので、作業の手が止まらない</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="features">
+  <div class="wrap">
+    <p class="eyebrow">Features</p>
+    <h2>シェード比較に必要なことだけ</h2>
+    <p class="sub">いつもの画像ビューアの操作を邪魔せず、横で見張るだけの小さな道具です。</p>
+    <div class="features">
+      <div class="feature">
+        <span class="num">L* a* b*</span>
+        <h3>カーソル横に常時表示</h3>
+        <p>カーソルの下の色を 1 秒に約 15 回読み取り、色見本と L・a・b をカーソルのすぐ横に表示します。</p>
+      </div>
+      <div class="feature">
+        <span class="num">ΔE00 / ΔE94 / ΔE76</span>
+        <h3>基準点との色差</h3>
+        <p>基準点を決めると、カーソル位置との ΔE をその場で計算。標準は CIEDE2000、設定で CIE94・CIE76 にも切り替えられます。</p>
+      </div>
+      <div class="feature">
+        <span class="num">11 × 11 pt</span>
+        <h3>デジタルカラーメーターと同じ絞り</h3>
+        <p>絞りサイズは 1〜11 の 6 段階（初期値は最大）。macOS 標準のデジタルカラーメーターと同じ範囲を、同じ手順で平均します。</p>
+      </div>
+    </div>
+
+    <div class="compare-area">
+      <div class="win" aria-label="比較ウィンドウの再現">
+        <div class="titlebar"><i></i><b>比較</b></div>
+        <div class="body">
+          <div class="note">基準点クリア：Shift + Control 同時押し</div>
+          <hr>
+          <div class="swatch-labels"><span>基準点：Shift 2度押し</span><span>比較点：Control 2度押し</span></div>
+          <div class="swatches"><div></div><div></div></div>
+          <table>
+            <tr><th></th><th>基準</th><th>差分</th><th>現在</th></tr>
+            <tr><td>L</td><td>78.48</td><td class="d">−4.27</td><td>74.21</td></tr>
+            <tr><td>a</td><td>5.25</td><td class="d">+2.02</td><td>7.27</td></tr>
+            <tr><td>b</td><td>16.56</td><td class="d">+2.81</td><td>19.37</td></tr>
+          </table>
+          <hr>
+          <div class="total"><span>ΔE00</span><b class="de-orange">3.79</b></div>
+        </div>
+      </div>
+      <div class="points">
+        <div>
+          <h3>基準と現在を、隣り合わせで</h3>
+          <p>比較ウィンドウには基準点と今のカーソル位置の色が左右に並び、L・a・b それぞれの差分と ΔE が一目でわかります。</p>
+        </div>
+        <div>
+          <h3>比較点を 5 つまで記録</h3>
+          <p>気になる箇所を保存しておけば、メニューバーの一覧で時刻・色見本・Lab・基準点からの ΔE をあとから見返せます。</p>
+        </div>
+        <div>
+          <h3>クリックを横取りしない</h3>
+          <p>操作はすべてキーの 2 度押し。プレビューや Photoshop のクリックや右クリックメニューには影響しません。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="windows">
+  <div class="wrap">
+    <p class="eyebrow">Mac &amp; Windows</p>
+    <h2>Windows には、画面の色を Lab で見る標準ツールがありません</h2>
+    <p class="sub">Mac には「デジタルカラーメーター」が最初から入っていますが、Windows にはそれにあたる標準ツールがありません。DeltaShade は Mac でも Windows でも、同じ画面・同じキー操作で使えるように作っています。</p>
+    <div class="windows">
+      <div class="os-card">
+        <span class="tag">Mac</span>
+        <h3>デジタルカラーメーターを、比較のための道具に</h3>
+        <p>数値の出し方はデジタルカラーメーターと同じまま、カーソル横の常時表示・基準点との ΔE・比較点の記録を加えました。</p>
+      </div>
+      <div class="os-card">
+        <span class="tag">Windows</span>
+        <h3>Windows でも、同じ操作で Lab と ΔE を</h3>
+        <p>Shift 2度押しで基準点、Ctrl 2度押しで比較点。Mac 版と同じ画面・同じ操作で使えます。ディスプレイのカラープロファイルを読んで Lab を計算します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <p class="eyebrow">How to use</p>
+    <h2>キー操作は 3 つだけ</h2>
+    <p class="sub">カーソルを測りたい場所に置いて、キーを押します。</p>
+    <div class="keys">
+      <div class="key">
+        <div class="combo"><kbd>Shift</kbd><kbd>Shift</kbd></div>
+        <h3>基準点を設定</h3>
+        <p>すばやく 2 度押し。比較ウィンドウが開きます。</p>
+      </div>
+      <div class="key">
+        <div class="combo"><kbd>Control</kbd><kbd>Control</kbd></div>
+        <h3>比較点を保存</h3>
+        <p>すばやく 2 度押し。空いている枠に順に入ります。</p>
+      </div>
+      <div class="key">
+        <div class="combo"><kbd>Shift</kbd>+<kbd>Control</kbd></div>
+        <h3>基準点をクリア</h3>
+        <p>同時に押すと基準点が消えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="accuracy">
+  <div class="wrap">
+    <p class="eyebrow">Accuracy</p>
+    <h2>デジタルカラーメーターと小数第一位まで一致</h2>
+    <p class="sub">Mac 版は macOS 標準のデジタルカラーメーターと同じ手順で色を読み取り、Lab に変換しています。開発時に実際の歯と歯肉の写真で比べた結果です（絞りサイズ 11）。</p>
+    <div class="accuracy">
+      <table>
+        <tr><th>測定箇所</th><th>デジタルカラーメーター（L / a / b）</th><th>DeltaShade（L / a / b）</th><th>最大差</th></tr>
+        <tr><td>歯 1</td><td class="m">78.48 / 5.25 / 16.56</td><td class="m">78.49 / 5.25 / 16.56</td><td class="m">0.01</td></tr>
+        <tr><td>歯 2</td><td class="m">74.21 / 7.27 / 19.37</td><td class="m">74.22 / 7.27 / 19.37</td><td class="m">0.01</td></tr>
+        <tr><td>歯 3</td><td class="m">70.04 / 7.52 / 21.60</td><td class="m">70.05 / 7.51 / 21.61</td><td class="m">0.02</td></tr>
+        <tr><td>歯肉</td><td class="m">26.20 / 29.24 / 16.94</td><td class="m">26.20 / 29.24 / 16.94</td><td class="m">0.01</td></tr>
+      </table>
+    </div>
+    <p class="fine">数値は「写真に記録された色」です。撮影条件（光源・露出・ホワイトバランス）に左右されるため、グレーカードなどで条件をそろえた写真での比較をおすすめします。</p>
+  </div>
+</section>
+
+<section class="block" id="price">
+  <div class="wrap">
+    <p class="eyebrow">Price</p>
+    <h2>買い切り ¥2,000</h2>
+    <div class="price">
+      <div class="plan">
+        <p>DeltaShade　1 ライセンス（Mac・Windows 共通）</p>
+        <p class="amount">¥2,000<small>税込・買い切り</small></p>
+        <ul>
+          <li>購入後すぐにダウンロード、ライセンスキーをメールでお届け</li>
+          <li>1 ライセンスで Mac・Windows あわせて 2 台まで</li>
+          <li>不具合修正のアップデートは無料</li>
+        </ul>
+        <a class="btn primary" href="#price" aria-disabled="true">購入手続きへ（準備中）</a>
+        <p class="fine">お支払いは決済代行サービス Lemon Squeezy（米国）を通じて行います。クレジットカード（JCB を含む）、PayPal、Apple Pay、Google Pay などが使えます。</p>
+      </div>
+      <div class="spec">
+        <dl>
+          <dt>Mac</dt><dd>M1 以降のすべての Apple シリコン搭載 Mac、macOS 26 以降（Apple シリコンの Mac は無料でアップデートできます）。Intel プロセッサ搭載 Mac には対応していません。</dd>
+          <dt>Windows</dt><dd>Windows 11（64 ビット）</dd>
+          <dt>必要な許可</dt><dd>Mac のみ：画面収録・アクセシビリティ（初回起動時にご案内します）</dd>
+          <dt>言語</dt><dd>日本語、English、Deutsch、한국어、简体中文、繁體中文、Português（Brasil・Portugal）、Español</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="install">
+  <div class="wrap">
+    <p class="eyebrow">Install</p>
+    <h2>はじめて開くときの手順</h2>
+    <p class="sub">DeltaShade は個人開発のため、Apple や Microsoft の有料の配布者登録をしていません。そのため初回だけ、確認画面で次の操作が必要です。</p>
+    <div class="install-cols">
+      <div>
+        <h3>Mac</h3>
+        <ol class="install">
+          <li>ダウンロードした dmg を開き、DeltaShade を「アプリケーション」フォルダにドラッグします。</li>
+          <li>DeltaShade をダブルクリックします。「開けません」という確認が出たら「完了」を押します。</li>
+          <li>「システム設定」→「プライバシーとセキュリティ」を開き、下の方にある「DeltaShade」の「このまま開く」を押します。</li>
+          <li>案内に従って「画面収録」と「アクセシビリティ」を許可します。</li>
+          <li>メニューバーの ΔE のアイコンを開き、メールで届いたライセンスキーを入力します。</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Windows</h3>
+        <ol class="install">
+          <li>ダウンロードした DeltaShade-Setup.exe をダブルクリックします。</li>
+          <li>「Windows によって PC が保護されました」と出たら、「詳細情報」→「実行」を押します。</li>
+          <li>画面の案内に従ってインストールします。管理者の許可は必要ありません。</li>
+          <li>通知領域の ΔE のアイコンを開き、メールで届いたライセンスキーを入力します。</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2>よくある質問</h2>
+    <div class="faq">
+      <details>
+        <summary>画面収録とアクセシビリティの許可は何に使いますか？</summary>
+        <p>画面収録はカーソル位置の色を読み取るため、アクセシビリティは Shift・Control の 2 度押しを見張るために使います。画面の画像を保存したり、外部に送信したりすることはありません。</p>
+      </details>
+      <details>
+        <summary>「開発元を確認できません」「PC が保護されました」と出ます。安全ですか？</summary>
+        <p>Apple や Microsoft の有料の配布者登録をしていない個人開発のアプリでは、この表示が出ます。上の「はじめて開くときの手順」のとおり、一度だけ許可すれば以降は普通に起動できます。</p>
+      </details>
+      <details>
+        <summary>モニターのカラープロファイルを変えると数値は変わりますか？</summary>
+        <p>デジタルカラーメーターと同じく、表示に使っているプロファイルで逆算するため、ほとんどの場合は変わりません。ディスプレイで表示しきれない鮮やかな色だけは変わることがあります。</p>
+      </details>
+      <details>
+        <summary>口腔内の実際の色を測定できますか？</summary>
+        <p>いいえ。DeltaShade が示すのは写真に記録された色です。測色計の代わりや診断の目的には使えません。撮影条件をそろえた写真どうしの比較にお使いください。</p>
+      </details>
+      <details>
+        <summary>Intel の Mac で使えますか？</summary>
+        <p>使えません。M1 以降の Apple シリコンを搭載した Mac が対象です。</p>
+      </details>
+      <details>
+        <summary>Mac と Windows で数値は同じになりますか？</summary>
+        <p>どちらも同じ式で計算しますが、画面の色の仕組みが OS ごとに違うため、まったく同じにはなりません。開発時の確認では、同じ色見本で小数第 1 位で 0.7 程度以内の差でした。比較はいつも同じパソコンで行ってください。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer class="site">
+    <div class="row">
+      <span>© Owl Dental Create</span>
+      <nav aria-label="法的情報">
+        <a href="tokushoho.html">特定商取引法に基づく表記</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </nav>
+    </div>
+    <p>Mac、macOS は Apple Inc. の商標です。Windows は Microsoft Corporation の商標です。Photoshop は Adobe の商標です。その他の製品名は各社の商標です。</p>
+  </footer>
+</div>
+
+
+<script>
+/* 画面イメージのアニメーション
+   実際の DeltaShade と同じく、カーソルが動いている間は 1 秒に約 15 回 色を読み直すので数値が揺れ、
+   止まった瞬間にその場所の値で止まる。ΔE は表示している Lab から CIEDE2000 で毎回計算する。 */
+(function () {
+  var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var REF = { L: 91.94, a: 2.80, b: 11.32 };   // 基準点（左中切歯の中央、写真から実測）
+
+  function ciede2000(x, y) {
+    var d = Math.PI / 180, c1 = Math.hypot(x.a, x.b), c2 = Math.hypot(y.a, y.b), cb = (c1 + c2) / 2;
+    var g = 0.5 * (1 - Math.sqrt(Math.pow(cb, 7) / (Math.pow(cb, 7) + Math.pow(25, 7))));
+    var a1 = (1 + g) * x.a, a2 = (1 + g) * y.a, c1p = Math.hypot(a1, x.b), c2p = Math.hypot(a2, y.b);
+    function hue(b, a) { if (b === 0 && a === 0) return 0; var h = Math.atan2(b, a) / d; return h >= 0 ? h : h + 360; }
+    var h1 = hue(x.b, a1), h2 = hue(y.b, a2), dL = y.L - x.L, dC = c2p - c1p, dh = 0;
+    if (c1p * c2p !== 0) { dh = h2 - h1; if (dh > 180) dh -= 360; else if (dh < -180) dh += 360; }
+    var dH = 2 * Math.sqrt(c1p * c2p) * Math.sin(dh / 2 * d), Lb = (x.L + y.L) / 2, Cb = (c1p + c2p) / 2, Hb = h1 + h2;
+    if (c1p * c2p !== 0) Hb = Math.abs(h1 - h2) <= 180 ? (h1 + h2) / 2 : (h1 + h2 < 360 ? (h1 + h2 + 360) / 2 : (h1 + h2 - 360) / 2);
+    var T = 1 - 0.17 * Math.cos((Hb - 30) * d) + 0.24 * Math.cos(2 * Hb * d) + 0.32 * Math.cos((3 * Hb + 6) * d) - 0.20 * Math.cos((4 * Hb - 63) * d);
+    var dT = 30 * Math.exp(-Math.pow((Hb - 275) / 25, 2)), Rc = 2 * Math.sqrt(Math.pow(Cb, 7) / (Math.pow(Cb, 7) + Math.pow(25, 7)));
+    var l50 = (Lb - 50) * (Lb - 50), SL = 1 + 0.015 * l50 / Math.sqrt(20 + l50), SC = 1 + 0.045 * Cb, SH = 1 + 0.015 * Cb * T;
+    var RT = -Math.sin(2 * dT * d) * Rc, tl = dL / SL, tc = dC / SC, th = dH / SH;
+    return Math.sqrt(tl * tl + tc * tc + th * th + RT * tc * th);
+  }
+  function labToHex(l) {
+    var fy = (l.L + 16) / 116, fx = fy + l.a / 500, fz = fy - l.b / 200, e = 216 / 24389, k = 24389 / 27;
+    function inv(f) { return f * f * f > e ? f * f * f : (116 * f - 16) / k; }
+    var X = inv(fx) * 0.96422, Y = l.L > k * e ? fy * fy * fy : l.L / k, Z = inv(fz) * 0.82521;
+    var x = 0.9555766 * X - 0.0230393 * Y + 0.0631636 * Z, y = -0.0282895 * X + 1.0099416 * Y + 0.0210077 * Z, z = 0.0122982 * X - 0.0204830 * Y + 1.3299098 * Z;
+    var rgb = [3.2404542 * x - 1.5371385 * y - 0.4985314 * z, -0.9692660 * x + 1.8760108 * y + 0.0415560 * z, 0.0556434 * x - 0.2040259 * y + 1.0572252 * z];
+    return "#" + rgb.map(function (v) {
+      v = Math.min(1, Math.max(0, v)); v = v <= 0.0031308 ? 12.92 * v : 1.055 * Math.pow(v, 1 / 2.4) - 0.055;
+      return ("0" + Math.round(v * 255).toString(16)).slice(-2);
+    }).join("");
+  }
+  function f2(v) { return v.toFixed(2); }
+  function f1(v) { return v.toFixed(1); }
+  function sd(v) { return (v < 0 ? "−" : "+") + Math.abs(v).toFixed(2); }
+  function cls(de) { var s = Math.round(de * 100) / 100; return s < 1.5 ? "de-green" : s < 3 ? "de-blue" : s < 6 ? "de-orange" : "de-red"; }
+  function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function mix(p, q, t) { return { L: lerp(p.L, q.L, t), a: lerp(p.a, q.a, t), b: lerp(p.b, q.b, t) }; }
+  function jitter(l) {   // 動いている間に読み取る、カーソル下の細かい色のばらつき
+    return { L: l.L + (Math.random() * 2 - 1) * 6, a: l.a + (Math.random() * 2 - 1) * 3, b: l.b + (Math.random() * 2 - 1) * 7 };
+  }
+  var SAMPLE_MS = 66;  // 1 秒に約 15 回
+
+  /* ---- 見出しの画面イメージ：歯から歯へ ---- */
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    var cur = $("hv-cursor"), ov = $("hv-overlay"), scene = document.querySelector(".scene");
+    if (!cur || !ov) return;
+    var pts = [
+      { x: 76.2, y: 45.9, lab: { L: 89.38, a: 3.53, b: 15.13 }, rgb: "#f0ddc3" },
+      { x: 59.9, y: 45.9, lab: { L: 95.54, a: 1.38, b: 6.60 }, rgb: "#f9f0e5" },
+      { x: 40.0, y: 37.1, lab: { L: 88.39, a: 5.48, b: 21.27 }, rgb: "#f3d9b5" },
+      { x: 23.8, y: 45.9, lab: { L: 90.19, a: 2.97, b: 12.30 }, rgb: "#efe0cb" }
+    ];
+    function place(x, y) {
+      cur.style.left = x + "%"; cur.style.top = y + "%";
+      ov.style.left = x + "%"; ov.style.top = y + "%";
+      ov.classList.remove("flip");
+      var r = ov.getBoundingClientRect(), sr = scene.getBoundingClientRect();
+      if (r.right > sr.right - 6) ov.classList.add("flip");   // 画面の端だけ左に回り込む（アプリと同じ）
+    }
+    function values(lab, rgb) {
+      var de = ciede2000(REF, lab);
+      $("hv-chip").style.background = rgb || labToHex(lab); $("mc-cur").style.background = rgb || labToHex(lab);
+      ["L", "a", "b"].forEach(function (k) {
+        $("hv-" + k).textContent = f2(lab[k]); $("mc-" + k).textContent = f2(lab[k]);
+        $("hv-d" + k).textContent = "(" + sd(lab[k] - REF[k]) + ")"; $("mc-d" + k).textContent = sd(lab[k] - REF[k]);
+      });
+      ["hv-de", "mc-de"].forEach(function (id) { var e = $(id); e.textContent = f2(de); e.className = cls(de); });
+    }
+    place(pts[0].x, pts[0].y); values(pts[0].lab, pts[0].rgb);
+    if (RM) return;
+    var MOVE = 900, HOLD = 1700, i = 0, t0 = performance.now(), lastSample = 0, settled = true;
+    function frame(now) {
+      var from = pts[i], to = pts[(i + 1) % pts.length], e = now - t0;
+      if (e < MOVE) {
+        var p = ease(e / MOVE);
+        place(lerp(from.x, to.x, p), lerp(from.y, to.y, p));
+        if (now - lastSample > SAMPLE_MS) { lastSample = now; values(jitter(mix(from.lab, to.lab, p))); }
+        settled = false;
+      } else {
+        if (!settled) { place(to.x, to.y); values(to.lab, to.rgb); settled = true; }
+        if (e > MOVE + HOLD) { i = (i + 1) % pts.length; t0 = now; }
+      }
+      requestAnimationFrame(frame);
+    }
+    setTimeout(function () { t0 = performance.now(); requestAnimationFrame(frame); }, HOLD);
+  })();
+
+  /* ---- 写真をクリックしても隠れない：8 秒で 1 周 ---- */
+  (function () {
+    var panels = document.querySelectorAll(".fd-panel");
+    if (!panels.length) return;
+    var BG = { L: 74.6, a: -3.4, b: -5.9 };           // 机（背景）の色
+    var TOOTH = { L: 89.38, a: 3.53, b: 15.13 };      // 写真の歯（右側切歯）
+    var START = { x: 24, y: 80 }, TARGET = { x: 46, y: 44 };
+    var P = [].map.call(panels, function (el) {
+      return {
+        cursor: el.querySelector(".fd-cursor"), click: el.querySelector(".fd-click"), photo: el.querySelector(".fd-photo"),
+        note: el.querySelector(".fd-note"), mag: el.querySelector(".fd-mag"), vals: el.querySelector(".fd-vals"),
+        ds: el.querySelector(".fd-ds"), cmp: el.querySelector(".fd-compare")
+      };
+    });
+    function show(lab, x, y) {
+      P.forEach(function (p) {
+        p.cursor.style.left = x + "%"; p.cursor.style.top = y + "%";
+        if (p.ds) {
+          p.ds.style.left = "calc(" + x + "% + 16px)"; p.ds.style.top = "calc(" + y + "% + 18px)";
+          var de = ciede2000(REF, lab);
+          var rows = ["L", "a", "b"].map(function (k) {
+            return "<tr><td>" + k + "</td><td>" + f2(lab[k]) + '</td><td class="diff">(' + sd(lab[k] - REF[k]) + ")</td></tr>";
+          }).join("");
+          p.ds.innerHTML = '<div class="de"><span>ΔE00</span><em class="' + cls(de) + '">' + f2(de) + '</em></div><div class="row"><div class="chip" style="background:' + labToHex(lab) + '"></div><table>' + rows + "</table></div>";
+        }
+        if (p.cmp) {
+          var de2 = ciede2000(REF, lab);
+          p.cmp.querySelector(".fdc-cur").style.background = labToHex(lab);
+          ["L", "a", "b"].forEach(function (k) {
+            p.cmp.querySelector(".fdc-" + k).textContent = f2(lab[k]);
+            p.cmp.querySelector(".fdc-d" + k).textContent = sd(lab[k] - REF[k]);
+          });
+          p.cmp.querySelector(".fdc-de").innerHTML = 'ΔE00 <b class="' + cls(de2) + '">' + f2(de2) + "</b>";
+        }
+        if (p.vals) { p.vals.innerHTML = "L* " + f1(lab.L) + "<br>a* " + f1(lab.a) + "<br>b* " + f1(lab.b); p.mag.style.background = labToHex(lab); }
+      });
+    }
+    function raise(on) { P.forEach(function (p) { p.photo.style.zIndex = on ? 4 : 1; }); }
+    function note(on) { P.forEach(function (p) { p.note.style.opacity = on ? 1 : 0; }); }
+    function ripple() {
+      P.forEach(function (p) { p.click.classList.remove("go"); void p.click.offsetWidth; p.click.classList.add("go"); });
+    }
+    if (RM) { show(TOOTH, TARGET.x, TARGET.y); raise(true); note(true); return; }
+    show(BG, START.x, START.y); raise(false); note(false);
+    var CYCLE = 8000, t0 = performance.now(), last = 0, phase = "";
+    function frame(now) {
+      var t = (now - t0) % CYCLE;
+      if (t < 2000) {                                   // 写真へ移動（数値が揺れる）
+        if (phase !== "in") { phase = "in"; raise(false); note(false); }
+        var p = ease(t / 2000);
+        var lab = mix(BG, TOOTH, p);
+        if (now - last > SAMPLE_MS) { last = now; P.forEach(function () {}); show(jitter(lab), lerp(START.x, TARGET.x, p), lerp(START.y, TARGET.y, p)); }
+        else P.forEach(function (q) {
+          q.cursor.style.left = lerp(START.x, TARGET.x, p) + "%"; q.cursor.style.top = lerp(START.y, TARGET.y, p) + "%";
+          if (q.ds) { q.ds.style.left = "calc(" + lerp(START.x, TARGET.x, p) + "% + 16px)"; q.ds.style.top = "calc(" + lerp(START.y, TARGET.y, p) + "% + 18px)"; }
+        });
+      } else if (t < 6800) {                            // 止まる → クリック
+        if (phase !== "stop") { phase = "stop"; show(TOOTH, TARGET.x, TARGET.y); }
+        if (t > 2640 && phase === "stop") { phase = "click"; ripple(); raise(true); }
+        if (t > 2900) note(true);
+      } else {                                          // 元の位置へ戻る（数値が揺れる）
+        if (phase !== "out") { phase = "out"; note(false); }
+        var q2 = ease((t - 6800) / 1200);
+        if (t > 7400) raise(false);
+        if (now - last > SAMPLE_MS) { last = now; show(jitter(mix(TOOTH, BG, q2)), lerp(TARGET.x, START.x, q2), lerp(TARGET.y, START.y, q2)); }
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+})();
+</script>
+</body>
+</html>

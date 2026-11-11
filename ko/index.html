@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DeltaShade | 사진 속 치아 색을 Lab과 ΔE로 비교</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<meta property="og:title" content="DeltaShade">
+<meta property="og:description" content="사진 속 치아 색을 L*a*b* 값과 ΔE(CIEDE2000)로 비교하는 치과기공사를 위한 셰이드 비교 앱. Mac·Windows 지원.">
+<meta property="og:image" content="https://deltashade.app/icon.png">
+<meta name="description" content="사진 속 치아 색을 L*a*b* 값과 ΔE(CIEDE2000)로 비교하는 치과기공사를 위한 셰이드 비교 앱. Mac·Windows 지원.">
+<link rel="alternate" hreflang="ja" href="https://deltashade.app/">
+<link rel="alternate" hreflang="en" href="https://deltashade.app/en/">
+<link rel="alternate" hreflang="de" href="https://deltashade.app/de/">
+<link rel="alternate" hreflang="ko" href="https://deltashade.app/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deltashade.app/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deltashade.app/zh-hant/">
+<link rel="alternate" hreflang="pt-BR" href="https://deltashade.app/pt-br/">
+<link rel="alternate" hreflang="pt-PT" href="https://deltashade.app/pt-pt/">
+<link rel="alternate" hreflang="es" href="https://deltashade.app/es/">
+<link rel="alternate" hreflang="x-default" href="https://deltashade.app/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html"><b>DeltaShade</b><span>셰이드 비교 앱</span></a>
+    <nav class="top" aria-label="페이지 내">
+      <a href="#features">기능</a>
+      <a href="#windows">Windows</a>
+      <a href="#how">사용법</a>
+      <a href="#accuracy">정확도</a>
+      <a href="#price">가격</a>
+      <a href="install.html">설치 방법</a>
+    </nav>
+    <details class="langnav"><summary aria-label="언어"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 8h13M8 1.5c2 2 2.8 4.2 2.8 6.5S10 12.5 8 14.5M8 1.5C6 3.5 5.2 5.7 5.2 8S6 12.5 8 14.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>한국어</summary><ul><li><a href="../index.html" lang="ja" hreflang="ja">日本語</a></li><li><a href="../en/index.html" lang="en" hreflang="en">English</a></li><li><a href="../de/index.html" lang="de" hreflang="de">Deutsch</a></li><li><a href="../ko/index.html" lang="ko" hreflang="ko" aria-current="true">한국어</a></li><li><a href="../zh-hans/index.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li><li><a href="../zh-hant/index.html" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li><li><a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></li><li><a href="../pt-pt/index.html" lang="pt-PT" hreflang="pt-PT">Português (Portugal)</a></li><li><a href="../es/index.html" lang="es" hreflang="es">Español</a></li></ul></details>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Shade comparison for dental technicians</p>
+      <h1>사진 속 치아 색을<br><em>Lab 값과 ΔE</em>로 비교하세요.</h1>
+      <p class="lead">미리보기나 Photoshop에서 연 구강 내 사진 위에 커서를 올려 두기만 하면 됩니다. 사진을 클릭해도 가려지지 않고 커서 바로 옆에 L·a·b가 계속 표시되며, 키 조작 한 번으로 기준점과의 색차(CIEDE2000)를 알 수 있습니다.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#price">¥2,000에 구매</a>
+        <a class="btn ghost" href="#how">사용법 보기</a>
+      </div>
+      <div class="platforms">
+        <span class="platform">Mac (Apple 실리콘)</span>
+        <span class="platform">Windows 11</span>
+        <span class="platform">9개 언어</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+    <div class="scene" role="img" aria-label="DeltaShade 사용 화면 예시. 사진의 앞니에 커서를 올리면 옆에 Lab 값과 기준점과의 ΔE가 표시되고, 오른쪽 위에 비교 창이 떠 있습니다">
+      <div class="menubar-mock" aria-hidden="true"><span class="apple">●</span><span>미리보기</span><span class="dim">파일　편집　보기</span><span class="spacer"></span><svg class="de-glyph" viewBox="0 0 18 18"><path d="M2.5 14 L6.5 4 L10.5 14 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><text x="11" y="14" font-family="Georgia, serif" font-size="9.5" font-style="italic" font-weight="700" fill="currentColor">E</text></svg><span class="dim">10:42</span></div>
+      <div class="viewer" aria-hidden="true">
+        <div class="viewer-bar"><i></i><i></i><i></i><span>IMG_2041.jpg</span></div>
+        <div class="viewer-body">
+          <img class="smile" src="../assets/smile.jpg" alt="" width="1400" height="933">
+          <div class="ref-mark" style="left:40%;top:45.9%"><span>기준점</span></div>
+          <div class="cursor" id="hv-cursor" style="left:76.2%;top:45.9%"><svg width="16" height="22" viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+          <div class="overlay flip" id="hv-overlay" style="left:76.2%;top:45.9%">
+            <div class="de"><span>ΔE00</span><em class="de-blue" id="hv-de">2.91</em></div>
+            <div class="row">
+              <div class="chip" id="hv-chip" style="background:#f0ddc3"></div>
+              <table>
+                <tr><td>L</td><td id="hv-L">89.38</td><td class="diff" id="hv-dL">(−2.56)</td></tr>
+                <tr><td>a</td><td id="hv-a">3.53</td><td class="diff" id="hv-da">(+0.73)</td></tr>
+                <tr><td>b</td><td id="hv-b">15.13</td><td class="diff" id="hv-db">(+3.81)</td></tr>
+              </table>
+            </div></div>
+          </div>
+        </div>
+      <div class="mini-compare" aria-hidden="true">
+        <div class="mc-title">비교</div>
+        <div class="mc-labels"><span>기준점</span><span>현재</span></div>
+        <div class="mc-swatches"><div style="background:#f4e5d2"></div><div id="mc-cur" style="background:#f0ddc3"></div></div>
+        <table>
+          <tr><th></th><th>기준</th><th>차이</th><th>현재</th></tr>
+          <tr><td>L</td><td>91.94</td><td class="d" id="mc-dL">−2.56</td><td id="mc-L">89.38</td></tr>
+          <tr><td>a</td><td>2.80</td><td class="d" id="mc-da">+0.73</td><td id="mc-a">3.53</td></tr>
+          <tr><td>b</td><td>11.32</td><td class="d" id="mc-db">+3.81</td><td id="mc-b">15.13</td></tr>
+        </table>
+        <div class="mc-total"><span>ΔE00</span><b class="de-blue" id="mc-de">2.91</b></div>
+      </div>
+    </div>
+    <ol class="scene-steps">
+      <li><span class="step-key"><kbd>Shift</kbd><kbd>Shift</kbd></span>기준으로 삼을 치아 위에서 두 번 누르기</li>
+      <li><span class="step-key"><svg viewBox="0 0 14 20" aria-hidden="true"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="currentColor"/></svg><span class="arrow">→</span></span>비교할 치아로 커서를 옮기기만 하면 됩니다</li>
+      <li><span class="step-key"><span class="de-green">ΔE</span></span>커서 옆과 비교 창에 색차가 표시됩니다</li>
+    </ol>
+    </div>
+  </section>
+</div>
+
+<section class="block" id="front">
+  <div class="wrap">
+    <p class="eyebrow">Always in front</p>
+    <h2>사진을 클릭해도 수치가 가려지지 않습니다</h2>
+    <p class="sub">디지털 색상 측정기는 일반 창이라서 사진 창을 클릭하면 뒤로 숨어 버립니다. DeltaShade의 수치는 언제나 커서 바로 옆, 가장 앞에 표시됩니다.</p>
+    <div class="front-demo" role="img" aria-label="사진 창을 클릭하면 디지털 색상 측정기 창은 사진 뒤로 숨지만, DeltaShade의 수치와 비교 창은 앞에 그대로 남아 있는 모습">
+      <figure class="fd-panel">
+        <figcaption><span class="tag">디지털 색상 측정기</span></figcaption>
+        <div class="fd-desk">
+          <div class="fd-photo fd-raise"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><img src="../assets/smile.jpg" alt=""></div>
+          <div class="fd-meter"><div class="fd-bar"><i></i><i></i><i></i>색상 측정기</div><div class="fd-meter-body"><div class="fd-mag" style="background:#f0ddc3"></div><div class="fd-vals">L* 89.4<br>a* 3.5<br>b* 15.1</div></div></div>
+          <div class="fd-cursor"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="fd-click"></div>
+          <p class="fd-note bad">사진을 클릭하면 수치 창이 뒤로 숨습니다</p>
+        </div>
+      </figure>
+      <figure class="fd-panel">
+        <figcaption><span class="tag ours">DeltaShade</span></figcaption>
+        <div class="fd-desk">
+          <div class="fd-photo fd-raise"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><img src="../assets/smile.jpg" alt=""></div>
+          <div class="fd-cursor"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="fd-click"></div>
+          <div class="fd-ds"><div class="de"><span>ΔE00</span><em class="de-blue">2.91</em></div><div class="row"><div class="chip" style="background:#f0ddc3"></div><table><tr><td>L</td><td>89.38</td><td class="diff">(−2.56)</td></tr><tr><td>a</td><td>3.53</td><td class="diff">(+0.73)</td></tr><tr><td>b</td><td>15.13</td><td class="diff">(+3.81)</td></tr></table></div></div>
+          <div class="fd-compare">
+            <div class="fdc-title">비교</div>
+            <div class="fdc-labels"><span>기준점</span><span>현재</span></div>
+            <div class="fdc-sw"><div style="background:#f4e5d2"></div><div class="fdc-cur" style="background:#f0ddc3"></div></div>
+            <table>
+              <tr><th></th><th>기준</th><th>차이</th><th>현재</th></tr>
+              <tr><td>L</td><td>91.94</td><td class="d fdc-dL">−2.56</td><td class="fdc-L">89.38</td></tr>
+              <tr><td>a</td><td>2.80</td><td class="d fdc-da">+0.73</td><td class="fdc-a">3.53</td></tr>
+              <tr><td>b</td><td>11.32</td><td class="d fdc-db">+3.81</td><td class="fdc-b">15.13</td></tr>
+            </table>
+            <div class="fdc-de">ΔE00 <b class="de-blue">2.91</b></div>
+          </div>
+          <p class="fd-note good">클릭해도 수치와 비교 창은 앞에 그대로</p>
+        </div>
+      </figure>
+    </div>
+    <div class="versus">
+      <div class="vs-card">
+        <span class="tag">디지털 색상 측정기</span>
+        <ul>
+          <li>수치가 화면 구석의 별도 창에 표시됩니다</li>
+          <li>사진을 확대·이동하려고 클릭하면 뒤로 숨습니다</li>
+          <li>수치를 볼 때마다 창을 찾아 다시 앞으로 꺼내야 합니다</li>
+        </ul>
+      </div>
+      <div class="vs-card ours">
+        <span class="tag">DeltaShade</span>
+        <ul>
+          <li>수치가 커서 바로 옆에 표시되어 시선을 옮기지 않고 읽을 수 있습니다</li>
+          <li>사진을 클릭해도 항상 가장 앞에 표시됩니다</li>
+          <li>비교 창도 앞에 떠 있어 작업이 멈추지 않습니다</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="features">
+  <div class="wrap">
+    <p class="eyebrow">Features</p>
+    <h2>셰이드 비교에 필요한 것만</h2>
+    <p class="sub">평소 쓰는 이미지 뷰어를 방해하지 않고 옆에서 지켜보기만 하는 작은 도구입니다.</p>
+    <div class="features">
+      <div class="feature">
+        <span class="num">L* a* b*</span>
+        <h3>커서 옆에 항상 표시</h3>
+        <p>커서 아래의 색을 1초에 약 15번 읽어 색 견본과 L·a·b를 커서 바로 옆에 표시합니다.</p>
+      </div>
+      <div class="feature">
+        <span class="num">ΔE00 / ΔE94 / ΔE76</span>
+        <h3>기준점과의 색차</h3>
+        <p>기준점을 정하면 커서 위치와의 ΔE를 바로 계산합니다. 기본은 CIEDE2000이며, 설정에서 CIE94·CIE76으로 바꿀 수 있습니다.</p>
+      </div>
+      <div class="feature">
+        <span class="num">11 × 11 pt</span>
+        <h3>디지털 색상 측정기와 같은 조리개</h3>
+        <p>조리개 크기는 1~11의 6단계(기본값은 최대). macOS에 기본 포함된 디지털 색상 측정기와 같은 범위를 같은 방식으로 평균합니다.</p>
+      </div>
+    </div>
+
+    <div class="compare-area">
+      <div class="win" aria-label="비교 창 재현">
+        <div class="titlebar"><i></i><b>비교</b></div>
+        <div class="body">
+          <div class="note">기준점 지우기: Shift + Control 동시에</div>
+          <hr>
+          <div class="swatch-labels"><span>기준점: Shift 두 번</span><span>비교점: Control 두 번</span></div>
+          <div class="swatches"><div></div><div></div></div>
+          <table>
+            <tr><th></th><th>기준</th><th>차이</th><th>현재</th></tr>
+            <tr><td>L</td><td>78.48</td><td class="d">−4.27</td><td>74.21</td></tr>
+            <tr><td>a</td><td>5.25</td><td class="d">+2.02</td><td>7.27</td></tr>
+            <tr><td>b</td><td>16.56</td><td class="d">+2.81</td><td>19.37</td></tr>
+          </table>
+          <hr>
+          <div class="total"><span>ΔE00</span><b class="de-orange">3.79</b></div>
+        </div>
+      </div>
+      <div class="points">
+        <div>
+          <h3>기준과 현재를 나란히</h3>
+          <p>비교 창에는 기준점과 현재 커서 위치의 색이 좌우로 나란히 표시되어 L·a·b 각각의 차이와 ΔE를 한눈에 알 수 있습니다.</p>
+        </div>
+        <div>
+          <h3>비교점을 5개까지 기록</h3>
+          <p>신경 쓰이는 곳을 저장해 두면 메뉴 막대의 목록에서 시각·색 견본·Lab·기준점과의 ΔE를 나중에 다시 볼 수 있습니다.</p>
+        </div>
+        <div>
+          <h3>클릭을 가로채지 않습니다</h3>
+          <p>모든 조작은 키를 두 번 누르는 방식입니다. 미리보기나 Photoshop의 클릭과 오른쪽 클릭 메뉴에 영향을 주지 않습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="windows">
+  <div class="wrap">
+    <p class="eyebrow">Mac &amp; Windows</p>
+    <h2>Windows에는 화면 색을 Lab으로 보는 기본 도구가 없습니다</h2>
+    <p class="sub">Mac에는 ‘디지털 색상 측정기’가 처음부터 들어 있지만, Windows에는 이에 해당하는 기본 도구가 없습니다. DeltaShade는 Mac에서도 Windows에서도 같은 화면, 같은 키 조작으로 쓸 수 있습니다.</p>
+    <div class="windows">
+      <div class="os-card">
+        <span class="tag">Mac</span>
+        <h3>디지털 색상 측정기를 비교를 위한 도구로</h3>
+        <p>수치를 구하는 방식은 디지털 색상 측정기와 같으며, 커서 옆 상시 표시·기준점과의 ΔE·비교점 기록을 더했습니다.</p>
+      </div>
+      <div class="os-card">
+        <span class="tag">Windows</span>
+        <h3>Windows에서도 같은 조작으로 Lab과 ΔE를</h3>
+        <p>Shift 두 번으로 기준점, Ctrl 두 번으로 비교점. Mac 버전과 같은 화면, 같은 조작으로 쓸 수 있습니다. 디스플레이의 색상 프로파일을 읽어 Lab을 계산합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <p class="eyebrow">How to use</p>
+    <h2>키 조작은 3가지뿐</h2>
+    <p class="sub">측정하고 싶은 곳에 커서를 두고 키를 누릅니다.</p>
+    <div class="keys">
+      <div class="key">
+        <div class="combo"><kbd>Shift</kbd><kbd>Shift</kbd></div>
+        <h3>기준점 설정</h3>
+        <p>빠르게 두 번 누르기. 비교 창이 열립니다.</p>
+      </div>
+      <div class="key">
+        <div class="combo"><kbd>Control</kbd><kbd>Control</kbd></div>
+        <h3>비교점 저장</h3>
+        <p>빠르게 두 번 누르기. 비어 있는 칸에 차례로 들어갑니다.</p>
+      </div>
+      <div class="key">
+        <div class="combo"><kbd>Shift</kbd>+<kbd>Control</kbd></div>
+        <h3>기준점 지우기</h3>
+        <p>동시에 누르면 기준점이 지워집니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="accuracy">
+  <div class="wrap">
+    <p class="eyebrow">Accuracy</p>
+    <h2>디지털 색상 측정기와 소수 첫째 자리까지 일치</h2>
+    <p class="sub">Mac 버전은 macOS에 기본 포함된 디지털 색상 측정기와 같은 방식으로 색을 읽고 Lab으로 변환합니다. 개발 중 실제 치아와 잇몸 사진으로 비교한 결과입니다(조리개 크기 11).</p>
+    <div class="accuracy">
+      <table>
+        <tr><th>측정 부위</th><th>디지털 색상 측정기 (L / a / b)</th><th>DeltaShade (L / a / b)</th><th>최대 차이</th></tr>
+        <tr><td>치아 1</td><td class="m">78.48 / 5.25 / 16.56</td><td class="m">78.49 / 5.25 / 16.56</td><td class="m">0.01</td></tr>
+        <tr><td>치아 2</td><td class="m">74.21 / 7.27 / 19.37</td><td class="m">74.22 / 7.27 / 19.37</td><td class="m">0.01</td></tr>
+        <tr><td>치아 3</td><td class="m">70.04 / 7.52 / 21.60</td><td class="m">70.05 / 7.51 / 21.61</td><td class="m">0.02</td></tr>
+        <tr><td>잇몸</td><td class="m">26.20 / 29.24 / 16.94</td><td class="m">26.20 / 29.24 / 16.94</td><td class="m">0.01</td></tr>
+      </table>
+    </div>
+    <p class="fine">수치는 ‘사진에 기록된 색’입니다. 촬영 조건(광원·노출·화이트 밸런스)에 따라 달라지므로, 그레이 카드 등으로 조건을 맞춘 사진끼리 비교하기를 권장합니다.</p>
+  </div>
+</section>
+
+<section class="block" id="price">
+  <div class="wrap">
+    <p class="eyebrow">Price</p>
+    <h2>한 번 구매, ¥2,000</h2>
+    <div class="price">
+      <div class="plan">
+        <p>DeltaShade 라이선스 1개 (Mac·Windows 공통)</p>
+        <p class="amount">¥2,000<small>세금 포함·한 번 구매</small></p>
+        <ul>
+          <li>구매 후 바로 다운로드, 라이선스 키는 이메일로 전달</li>
+          <li>라이선스 1개로 Mac·Windows 합쳐 최대 2대</li>
+          <li>버그 수정 업데이트 무료</li>
+        </ul>
+        <a class="btn primary" href="#price" aria-disabled="true">구매하기 (준비 중)</a>
+        <p class="fine">결제는 결제 대행 서비스 Lemon Squeezy(미국)를 통해 이루어집니다. 신용카드, PayPal, Apple Pay, Google Pay 등을 사용할 수 있습니다. 가격은 일본 엔화이며 카드사에서 원화로 환산됩니다.</p>
+      </div>
+      <div class="spec">
+        <dl>
+          <dt>Mac</dt><dd>M1 이후의 모든 Apple 실리콘 탑재 Mac, macOS 26 이상(Apple 실리콘 Mac은 무료로 업데이트할 수 있습니다). Intel 프로세서 탑재 Mac은 지원하지 않습니다.</dd>
+          <dt>Windows</dt><dd>Windows 11 (64비트)</dd>
+          <dt>필요한 권한</dt><dd>Mac만: 화면 기록·손쉬운 사용 (처음 실행할 때 안내합니다)</dd>
+          <dt>언어</dt><dd>日本語 · English · Deutsch · 한국어 · 简体中文 · 繁體中文 · Português (Brasil · Portugal) · Español</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="install">
+  <div class="wrap">
+    <p class="eyebrow">Install</p>
+    <h2>처음 열 때의 절차</h2>
+    <p class="sub">DeltaShade는 개인이 개발한 앱으로, Apple이나 Microsoft의 유료 개발자 등록을 하지 않았습니다. 그래서 처음 한 번만 확인 화면에서 다음 조작이 필요합니다.</p>
+    <div class="install-cols">
+      <div>
+        <h3>Mac</h3>
+        <ol class="install">
+          <li>다운로드한 dmg를 열고 DeltaShade를 ‘응용 프로그램’ 폴더로 드래그합니다.</li>
+          <li>DeltaShade를 더블 클릭합니다. 열 수 없다는 확인 창이 나오면 ‘완료’를 누릅니다.</li>
+          <li>‘시스템 설정’ → ‘개인정보 보호 및 보안’을 열고 아래쪽의 DeltaShade 옆 ‘그래도 열기’를 누릅니다.</li>
+          <li>안내에 따라 ‘화면 기록’과 ‘손쉬운 사용’을 허용합니다.</li>
+          <li>메뉴 막대의 ΔE 아이콘을 열고 이메일로 받은 라이선스 키를 입력합니다.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Windows</h3>
+        <ol class="install">
+          <li>다운로드한 DeltaShade-Setup.exe를 더블 클릭합니다.</li>
+          <li>‘Windows의 PC 보호’가 나오면 ‘추가 정보’ → ‘실행’을 누릅니다.</li>
+          <li>화면 안내에 따라 설치합니다. 관리자 권한은 필요하지 않습니다.</li>
+          <li>알림 영역의 ΔE 아이콘을 열고 이메일로 받은 라이선스 키를 입력합니다.</li>
+        </ol>
+      </div>
+    </div>
+    <p class="cta-row"><a class="btn ghost" href="install.html">화면별 자세한 절차 보기 →</a></p>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq">
+      <details>
+        <summary>화면 기록과 손쉬운 사용 권한은 어디에 쓰나요?</summary>
+        <p>화면 기록은 커서 위치의 색을 읽기 위해, 손쉬운 사용은 Shift·Control 두 번 누르기를 감지하기 위해 사용합니다. 화면 이미지를 저장하거나 외부로 보내는 일은 없습니다.</p>
+      </details>
+      <details>
+        <summary>‘Apple은 확인할 수 없습니다’ ‘Windows의 PC 보호’가 표시됩니다. 안전한가요?</summary>
+        <p>Apple이나 Microsoft의 유료 개발자 등록을 하지 않은 개인 개발 앱에서는 이 표시가 나옵니다. 위의 ‘처음 열 때의 절차’대로 한 번만 허용하면 이후에는 평소처럼 실행됩니다.</p>
+      </details>
+      <details>
+        <summary>모니터의 색상 프로파일을 바꾸면 수치가 달라지나요?</summary>
+        <p>디지털 색상 측정기와 마찬가지로 표시에 사용하는 프로파일로 역산하므로 대부분 달라지지 않습니다. 디스플레이가 표현할 수 없는 아주 선명한 색만 달라질 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>구강 내 실제 색을 측정할 수 있나요?</summary>
+        <p>아니요. DeltaShade가 보여 주는 것은 사진에 기록된 색입니다. 측색계를 대신하거나 진단 목적으로 사용할 수 없습니다. 촬영 조건을 맞춘 사진끼리 비교하는 데 사용하세요.</p>
+      </details>
+      <details>
+        <summary>Intel Mac에서 쓸 수 있나요?</summary>
+        <p>쓸 수 없습니다. M1 이후의 Apple 실리콘을 탑재한 Mac이 대상입니다.</p>
+      </details>
+      <details>
+        <summary>Mac과 Windows에서 수치가 같나요?</summary>
+        <p>둘 다 같은 식으로 계산하지만 화면 색을 다루는 방식이 OS마다 달라 완전히 같지는 않습니다. 개발 중 확인에서는 같은 색 견본으로 약 0.7 이내의 차이였습니다. 비교는 항상 같은 컴퓨터에서 하세요.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer class="site">
+    <div class="row">
+      <span>© Owl Dental Create</span>
+      <nav aria-label="법적 정보">
+        <a href="../tokushoho.html">특정상거래법에 따른 표기 (일본어)</a>
+        <a href="../en/privacy.html">개인정보 처리방침 (영어)</a>
+        <a href="../en/terms.html">이용약관 (영어)</a>
+      </nav>
+    </div>
+    <p>Mac, macOS는 Apple Inc.의 상표입니다. Windows는 Microsoft Corporation의 상표입니다. Photoshop은 Adobe의 상표입니다. 기타 제품명은 각 회사의 상표입니다.</p>
+  </footer>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

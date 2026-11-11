@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DeltaShade | Compare cores de dentes em fotos com Lab e ΔE</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<meta property="og:title" content="DeltaShade">
+<meta property="og:description" content="Um app de comparação de cores para técnicos em prótese dentária: compare as cores dos dentes em fotos com valores L*a*b* e ΔE (CIEDE2000). Para Mac e Windows.">
+<meta property="og:image" content="https://deltashade.app/icon.png">
+<meta name="description" content="Um app de comparação de cores para técnicos em prótese dentária: compare as cores dos dentes em fotos com valores L*a*b* e ΔE (CIEDE2000). Para Mac e Windows.">
+<link rel="alternate" hreflang="ja" href="https://deltashade.app/">
+<link rel="alternate" hreflang="en" href="https://deltashade.app/en/">
+<link rel="alternate" hreflang="de" href="https://deltashade.app/de/">
+<link rel="alternate" hreflang="ko" href="https://deltashade.app/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deltashade.app/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deltashade.app/zh-hant/">
+<link rel="alternate" hreflang="pt-BR" href="https://deltashade.app/pt-br/">
+<link rel="alternate" hreflang="pt-PT" href="https://deltashade.app/pt-pt/">
+<link rel="alternate" hreflang="es" href="https://deltashade.app/es/">
+<link rel="alternate" hreflang="x-default" href="https://deltashade.app/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html"><b>DeltaShade</b><span>App de comparação de cores</span></a>
+    <nav class="top" aria-label="Nesta página">
+      <a href="#features">Recursos</a>
+      <a href="#windows">Windows</a>
+      <a href="#how">Como usar</a>
+      <a href="#accuracy">Precisão</a>
+      <a href="#price">Preço</a>
+      <a href="install.html">Instalação</a>
+    </nav>
+    <details class="langnav"><summary aria-label="Idioma"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 8h13M8 1.5c2 2 2.8 4.2 2.8 6.5S10 12.5 8 14.5M8 1.5C6 3.5 5.2 5.7 5.2 8S6 12.5 8 14.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>Português (Brasil)</summary><ul><li><a href="../index.html" lang="ja" hreflang="ja">日本語</a></li><li><a href="../en/index.html" lang="en" hreflang="en">English</a></li><li><a href="../de/index.html" lang="de" hreflang="de">Deutsch</a></li><li><a href="../ko/index.html" lang="ko" hreflang="ko">한국어</a></li><li><a href="../zh-hans/index.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li><li><a href="../zh-hant/index.html" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li><li><a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR" aria-current="true">Português (Brasil)</a></li><li><a href="../pt-pt/index.html" lang="pt-PT" hreflang="pt-PT">Português (Portugal)</a></li><li><a href="../es/index.html" lang="es" hreflang="es">Español</a></li></ul></details>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Shade comparison for dental technicians</p>
+      <h1>Compare as cores dos dentes em fotos com <em>Lab e ΔE</em>.</h1>
+      <p class="lead">Basta passar o cursor sobre uma foto intraoral aberta no Pré-Visualização ou no Photoshop. L, a e b ficam sempre ao lado do cursor, mesmo quando você clica na foto, e um único toque de tecla mostra a diferença de cor (CIEDE2000) em relação ao ponto de referência.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#price">Comprar por ¥2.000</a>
+        <a class="btn ghost" href="#how">Ver como funciona</a>
+      </div>
+      <div class="platforms">
+        <span class="platform">Mac (Apple Silicon)</span>
+        <span class="platform">Windows 11</span>
+        <span class="platform">9 idiomas</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+    <div class="scene" role="img" aria-label="DeltaShade em uso: com o cursor sobre um dente anterior na foto, aparecem ao lado os valores Lab e o ΔE em relação à referência, e uma janela de comparação flutua no canto superior direito">
+      <div class="menubar-mock" aria-hidden="true"><span class="apple">●</span><span>Pré-Visualização</span><span class="dim">Arquivo　Editar　Visualizar</span><span class="spacer"></span><svg class="de-glyph" viewBox="0 0 18 18"><path d="M2.5 14 L6.5 4 L10.5 14 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><text x="11" y="14" font-family="Georgia, serif" font-size="9.5" font-style="italic" font-weight="700" fill="currentColor">E</text></svg><span class="dim">10:42</span></div>
+      <div class="viewer" aria-hidden="true">
+        <div class="viewer-bar"><i></i><i></i><i></i><span>IMG_2041.jpg</span></div>
+        <div class="viewer-body">
+          <img class="smile" src="../assets/smile.jpg" alt="" width="1400" height="933">
+          <div class="ref-mark" style="left:40%;top:45.9%"><span>Referência</span></div>
+          <div class="cursor" id="hv-cursor" style="left:76.2%;top:45.9%"><svg width="16" height="22" viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+          <div class="overlay flip" id="hv-overlay" style="left:76.2%;top:45.9%">
+            <div class="de"><span>ΔE00</span><em class="de-blue" id="hv-de">2.91</em></div>
+            <div class="row">
+              <div class="chip" id="hv-chip" style="background:#f0ddc3"></div>
+              <table>
+                <tr><td>L</td><td id="hv-L">89.38</td><td class="diff" id="hv-dL">(−2.56)</td></tr>
+                <tr><td>a</td><td id="hv-a">3.53</td><td class="diff" id="hv-da">(+0.73)</td></tr>
+                <tr><td>b</td><td id="hv-b">15.13</td><td class="diff" id="hv-db">(+3.81)</td></tr>
+              </table>
+            </div></div>
+          </div>
+        </div>
+      <div class="mini-compare" aria-hidden="true">
+        <div class="mc-title">Comparar</div>
+        <div class="mc-labels"><span>Referência</span><span>Atual</span></div>
+        <div class="mc-swatches"><div style="background:#f4e5d2"></div><div id="mc-cur" style="background:#f0ddc3"></div></div>
+        <table>
+          <tr><th></th><th>Ref</th><th>Dif.</th><th>Atual</th></tr>
+          <tr><td>L</td><td>91.94</td><td class="d" id="mc-dL">−2.56</td><td id="mc-L">89.38</td></tr>
+          <tr><td>a</td><td>2.80</td><td class="d" id="mc-da">+0.73</td><td id="mc-a">3.53</td></tr>
+          <tr><td>b</td><td>11.32</td><td class="d" id="mc-db">+3.81</td><td id="mc-b">15.13</td></tr>
+        </table>
+        <div class="mc-total"><span>ΔE00</span><b class="de-blue" id="mc-de">2.91</b></div>
+      </div>
+    </div>
+    <ol class="scene-steps">
+      <li><span class="step-key"><kbd>Shift</kbd><kbd>Shift</kbd></span>Toque duas vezes sobre o dente de referência</li>
+      <li><span class="step-key"><svg viewBox="0 0 14 20" aria-hidden="true"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="currentColor"/></svg><span class="arrow">→</span></span>Basta mover o cursor até o dente que quer comparar</li>
+      <li><span class="step-key"><span class="de-green">ΔE</span></span>A diferença aparece ao lado do cursor e na janela de comparação</li>
+    </ol>
+    </div>
+  </section>
+</div>
+
+<section class="block" id="front">
+  <div class="wrap">
+    <p class="eyebrow">Always in front</p>
+    <h2>Clique na foto — os valores continuam visíveis</h2>
+    <p class="sub">O Medidor de Cor Digital é uma janela comum, então some atrás da foto assim que você clica nela. Os valores do DeltaShade ficam sempre ao lado do cursor, na frente de tudo.</p>
+    <div class="front-demo" role="img" aria-label="Ao clicar na janela da foto, a janela do Medidor de Cor Digital fica atrás dela, enquanto os valores e a janela de comparação do DeltaShade continuam na frente">
+      <figure class="fd-panel">
+        <figcaption><span class="tag">Medidor de Cor Digital</span></figcaption>
+        <div class="fd-desk">
+          <div class="fd-photo fd-raise"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><img src="../assets/smile.jpg" alt=""></div>
+          <div class="fd-meter"><div class="fd-bar"><i></i><i></i><i></i>Medidor de Cor</div><div class="fd-meter-body"><div class="fd-mag" style="background:#f0ddc3"></div><div class="fd-vals">L* 89.4<br>a* 3.5<br>b* 15.1</div></div></div>
+          <div class="fd-cursor"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="fd-click"></div>
+          <p class="fd-note bad">Clique na foto e a janela dos valores fica atrás</p>
+        </div>
+      </figure>
+      <figure class="fd-panel">
+        <figcaption><span class="tag ours">DeltaShade</span></figcaption>
+        <div class="fd-desk">
+          <div class="fd-photo fd-raise"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><img src="../assets/smile.jpg" alt=""></div>
+          <div class="fd-cursor"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="fd-click"></div>
+          <div class="fd-ds"><div class="de"><span>ΔE00</span><em class="de-blue">2.91</em></div><div class="row"><div class="chip" style="background:#f0ddc3"></div><table><tr><td>L</td><td>89.38</td><td class="diff">(−2.56)</td></tr><tr><td>a</td><td>3.53</td><td class="diff">(+0.73)</td></tr><tr><td>b</td><td>15.13</td><td class="diff">(+3.81)</td></tr></table></div></div>
+          <div class="fd-compare">
+            <div class="fdc-title">Comparar</div>
+            <div class="fdc-labels"><span>Referência</span><span>Atual</span></div>
+            <div class="fdc-sw"><div style="background:#f4e5d2"></div><div class="fdc-cur" style="background:#f0ddc3"></div></div>
+            <table>
+              <tr><th></th><th>Ref</th><th>Dif.</th><th>Atual</th></tr>
+              <tr><td>L</td><td>91.94</td><td class="d fdc-dL">−2.56</td><td class="fdc-L">89.38</td></tr>
+              <tr><td>a</td><td>2.80</td><td class="d fdc-da">+0.73</td><td class="fdc-a">3.53</td></tr>
+              <tr><td>b</td><td>11.32</td><td class="d fdc-db">+3.81</td><td class="fdc-b">15.13</td></tr>
+            </table>
+            <div class="fdc-de">ΔE00 <b class="de-blue">2.91</b></div>
+          </div>
+          <p class="fd-note good">Clique à vontade — valores e janela de comparação continuam na frente</p>
+        </div>
+      </figure>
+    </div>
+    <div class="versus">
+      <div class="vs-card">
+        <span class="tag">Medidor de Cor Digital</span>
+        <ul>
+          <li>Os valores aparecem em uma janela separada, num canto da tela</li>
+          <li>Ao clicar para ampliar ou mover a foto, ela some atrás</li>
+          <li>Toda vez que quiser ler um valor, é preciso achar a janela e trazê-la de volta</li>
+        </ul>
+      </div>
+      <div class="vs-card ours">
+        <span class="tag">DeltaShade</span>
+        <ul>
+          <li>Os valores aparecem ao lado do cursor — sem desviar o olhar</li>
+          <li>Sempre na frente, mesmo quando você clica na foto</li>
+          <li>A janela de comparação também fica na frente, e o trabalho não para</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="features">
+  <div class="wrap">
+    <p class="eyebrow">Features</p>
+    <h2>Só o que a comparação de cores precisa</h2>
+    <p class="sub">Uma pequena ferramenta que acompanha em silêncio o seu visualizador de imagens de sempre, sem atrapalhar.</p>
+    <div class="features">
+      <div class="feature">
+        <span class="num">L* a* b*</span>
+        <h3>Sempre ao lado do cursor</h3>
+        <p>Lê a cor sob o cursor cerca de 15 vezes por segundo e mostra uma amostra com L, a e b logo ao lado.</p>
+      </div>
+      <div class="feature">
+        <span class="num">ΔE00 / ΔE94 / ΔE76</span>
+        <h3>Diferença em relação à referência</h3>
+        <p>Defina um ponto de referência e o ΔE até a posição do cursor é calculado na hora. CIEDE2000 por padrão; é possível mudar para CIE94 ou CIE76 nos Ajustes.</p>
+      </div>
+      <div class="feature">
+        <span class="num">11 × 11 pt</span>
+        <h3>Mesma abertura do Medidor de Cor Digital</h3>
+        <p>Seis tamanhos de abertura de 1 a 11 (o maior por padrão). Calcula a média da mesma área, do mesmo jeito que o Medidor de Cor Digital incluído no macOS.</p>
+      </div>
+    </div>
+
+    <div class="compare-area">
+      <div class="win" aria-label="Reprodução da janela de comparação">
+        <div class="titlebar"><i></i><b>Comparar</b></div>
+        <div class="body">
+          <div class="note">Limpar referência: Shift + Control juntos</div>
+          <hr>
+          <div class="swatch-labels"><span>Referência: toque duas vezes em Shift</span><span>Amostra: toque duas vezes em Control</span></div>
+          <div class="swatches"><div></div><div></div></div>
+          <table>
+            <tr><th></th><th>Ref</th><th>Dif.</th><th>Atual</th></tr>
+            <tr><td>L</td><td>78.48</td><td class="d">−4.27</td><td>74.21</td></tr>
+            <tr><td>a</td><td>5.25</td><td class="d">+2.02</td><td>7.27</td></tr>
+            <tr><td>b</td><td>16.56</td><td class="d">+2.81</td><td>19.37</td></tr>
+          </table>
+          <hr>
+          <div class="total"><span>ΔE00</span><b class="de-orange">3.79</b></div>
+        </div>
+      </div>
+      <div class="points">
+        <div>
+          <h3>Referência e atual lado a lado</h3>
+          <p>A janela de comparação mostra a cor de referência e a cor sob o cursor lado a lado, com as diferenças em L, a e b e o ΔE de relance.</p>
+        </div>
+        <div>
+          <h3>Salve até 5 amostras</h3>
+          <p>Salve os pontos que interessam e reveja depois na lista da barra de menus: horário, amostra, Lab e ΔE em relação à referência.</p>
+        </div>
+        <div>
+          <h3>Não rouba seus cliques</h3>
+          <p>Tudo é feito com toques duplos no teclado. Cliques e menus de clique direito no Pré-Visualização ou no Photoshop não são afetados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="windows">
+  <div class="wrap">
+    <p class="eyebrow">Mac &amp; Windows</p>
+    <h2>O Windows não tem uma ferramenta nativa para ler cores da tela em Lab</h2>
+    <p class="sub">Todo Mac vem com o Medidor de Cor Digital, mas o Windows não tem nada equivalente. O DeltaShade tem a mesma aparência e funciona com as mesmas teclas no Mac e no Windows.</p>
+    <div class="windows">
+      <div class="os-card">
+        <span class="tag">Mac</span>
+        <h3>O Medidor de Cor Digital, feito para comparar</h3>
+        <p>Os valores são medidos exatamente como no Medidor de Cor Digital, com exibição permanente ao lado do cursor, ΔE em relação à referência e amostras salvas.</p>
+      </div>
+      <div class="os-card">
+        <span class="tag">Windows</span>
+        <h3>Lab e ΔE no Windows, com as mesmas teclas</h3>
+        <p>Toque duas vezes em Shift para a referência e em Ctrl para uma amostra — as mesmas telas e teclas do Mac. O Lab é calculado a partir do perfil de cor do seu monitor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <p class="eyebrow">How to use</p>
+    <h2>Apenas três ações de teclado</h2>
+    <p class="sub">Posicione o cursor onde quer medir e pressione as teclas.</p>
+    <div class="keys">
+      <div class="key">
+        <div class="combo"><kbd>Shift</kbd><kbd>Shift</kbd></div>
+        <h3>Definir referência</h3>
+        <p>Toque duas vezes rápido. A janela de comparação se abre.</p>
+      </div>
+      <div class="key">
+        <div class="combo"><kbd>Control</kbd><kbd>Control</kbd></div>
+        <h3>Salvar amostra</h3>
+        <p>Toque duas vezes rápido. Preenche o próximo espaço vazio.</p>
+      </div>
+      <div class="key">
+        <div class="combo"><kbd>Shift</kbd>+<kbd>Control</kbd></div>
+        <h3>Limpar referência</h3>
+        <p>Pressione as duas ao mesmo tempo para limpar a referência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="accuracy">
+  <div class="wrap">
+    <p class="eyebrow">Accuracy</p>
+    <h2>Igual ao Medidor de Cor Digital até a primeira casa decimal</h2>
+    <p class="sub">A versão para Mac lê as cores e as converte para Lab do mesmo jeito que o Medidor de Cor Digital incluído no macOS. Estes são resultados com fotos reais de dentes e gengiva durante o desenvolvimento (abertura 11).</p>
+    <div class="accuracy">
+      <table>
+        <tr><th>Ponto</th><th>Medidor de Cor Digital (L / a / b)</th><th>DeltaShade (L / a / b)</th><th>Dif. máx.</th></tr>
+        <tr><td>Dente 1</td><td class="m">78.48 / 5.25 / 16.56</td><td class="m">78.49 / 5.25 / 16.56</td><td class="m">0.01</td></tr>
+        <tr><td>Dente 2</td><td class="m">74.21 / 7.27 / 19.37</td><td class="m">74.22 / 7.27 / 19.37</td><td class="m">0.01</td></tr>
+        <tr><td>Dente 3</td><td class="m">70.04 / 7.52 / 21.60</td><td class="m">70.05 / 7.51 / 21.61</td><td class="m">0.02</td></tr>
+        <tr><td>Gengiva</td><td class="m">26.20 / 29.24 / 16.94</td><td class="m">26.20 / 29.24 / 16.94</td><td class="m">0.01</td></tr>
+      </table>
+    </div>
+    <p class="fine">Os valores são as cores registradas na foto. Eles dependem das condições da foto (fonte de luz, exposição, balanço de branco), por isso recomendamos comparar fotos tiradas nas mesmas condições, por exemplo com um cartão cinza.</p>
+  </div>
+</section>
+
+<section class="block" id="price">
+  <div class="wrap">
+    <p class="eyebrow">Price</p>
+    <h2>Compra única, ¥2.000</h2>
+    <div class="price">
+      <div class="plan">
+        <p>DeltaShade — 1 licença (Mac e Windows)</p>
+        <p class="amount">¥2,000<small>impostos incl., compra única</small></p>
+        <ul>
+          <li>Download imediato após a compra; chave de licença enviada por e-mail</li>
+          <li>Uma licença para até 2 computadores (Mac e Windows somados)</li>
+          <li>Atualizações de correção gratuitas</li>
+        </ul>
+        <a class="btn primary" href="#price" aria-disabled="true">Finalizar compra (em breve)</a>
+        <p class="fine">O pagamento é processado pela Lemon Squeezy (EUA). Aceitamos cartões de crédito, PayPal, Apple Pay, Google Pay e outros. O preço é em ienes japoneses; seu cartão faz a conversão para a sua moeda.</p>
+      </div>
+      <div class="spec">
+        <dl>
+          <dt>Mac</dt><dd>Qualquer Mac com Apple Silicon (M1 ou posterior), macOS 26 ou posterior (atualização gratuita para Macs com Apple Silicon). Macs com processador Intel não são compatíveis.</dd>
+          <dt>Windows</dt><dd>Windows 11 (64 bits)</dd>
+          <dt>Permissões</dt><dd>Só no Mac: Gravação de Tela e Acessibilidade (você será orientado na primeira abertura)</dd>
+          <dt>Idiomas</dt><dd>日本語 · English · Deutsch · 한국어 · 简体中文 · 繁體中文 · Português (Brasil · Portugal) · Español</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="install">
+  <div class="wrap">
+    <p class="eyebrow">Install</p>
+    <h2>Abrindo pela primeira vez</h2>
+    <p class="sub">O DeltaShade é feito por um desenvolvedor independente que não participa dos programas pagos de desenvolvedores da Apple ou da Microsoft. Por isso, só na primeira vez, é preciso confirmar como abaixo.</p>
+    <div class="install-cols">
+      <div>
+        <h3>Mac</h3>
+        <ol class="install">
+          <li>Abra o dmg baixado e arraste o DeltaShade para a pasta Aplicativos.</li>
+          <li>Clique duas vezes no DeltaShade. Se aparecer uma mensagem dizendo que não pode ser aberto, clique em “Concluído”.</li>
+          <li>Abra Ajustes do Sistema → Privacidade e Segurança, role para baixo e clique em “Abrir Mesmo Assim” ao lado de DeltaShade.</li>
+          <li>Siga as instruções para permitir Gravação de Tela e Acessibilidade.</li>
+          <li>Abra o ícone ΔE na barra de menus e digite a chave de licença do seu e-mail.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Windows</h3>
+        <ol class="install">
+          <li>Clique duas vezes no DeltaShade-Setup.exe baixado.</li>
+          <li>Se aparecer “O Windows protegeu o computador”, clique em “Mais informações” → “Executar assim mesmo”.</li>
+          <li>Siga o instalador. Não é preciso ser administrador.</li>
+          <li>Abra o ícone ΔE na área de notificação e digite a chave de licença do seu e-mail.</li>
+        </ol>
+      </div>
+    </div>
+    <p class="cta-row"><a class="btn ghost" href="install.html">Guia passo a passo com cada tela →</a></p>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2>Perguntas frequentes</h2>
+    <div class="faq">
+      <details>
+        <summary>Para que servem as permissões de Gravação de Tela e Acessibilidade?</summary>
+        <p>A Gravação de Tela serve para ler a cor no cursor, e a Acessibilidade para detectar os toques duplos em Shift e Control. As imagens da tela nunca são salvas nem enviadas.</p>
+      </details>
+      <details>
+        <summary>Aparece “A Apple não pôde verificar…” ou “O Windows protegeu o computador”. É seguro?</summary>
+        <p>Essa mensagem aparece em apps de desenvolvedores independentes que não participam dos programas pagos da Apple ou da Microsoft. Permita uma vez como descrito em “Abrindo pela primeira vez” acima, e depois ele abre normalmente.</p>
+      </details>
+      <details>
+        <summary>Os valores mudam se eu trocar o perfil de cor do monitor?</summary>
+        <p>Assim como o Medidor de Cor Digital, o DeltaShade faz a conversão inversa pelo perfil usado na exibição, então na maioria dos casos eles não mudam. Só cores muito saturadas que o monitor não consegue exibir podem mudar.</p>
+      </details>
+      <details>
+        <summary>Ele mede a cor real na boca?</summary>
+        <p>Não. O DeltaShade mostra as cores registradas na foto. Não substitui um colorímetro e não deve ser usado para diagnóstico. Use-o para comparar fotos tiradas nas mesmas condições.</p>
+      </details>
+      <details>
+        <summary>Funciona em Macs com Intel?</summary>
+        <p>Não. É necessário um Mac com Apple Silicon (M1 ou posterior).</p>
+      </details>
+      <details>
+        <summary>Os valores são iguais no Mac e no Windows?</summary>
+        <p>Os dois usam as mesmas fórmulas, mas cada sistema trata as cores da tela de um jeito, então não são exatamente iguais. Em nossos testes, a mesma amostra de cor diferiu cerca de 0,7 ou menos. Compare sempre no mesmo computador.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer class="site">
+    <div class="row">
+      <span>© Owl Dental Create</span>
+      <nav aria-label="Informações legais">
+        <a href="../tokushoho.html">Aviso legal (Japão, em japonês)</a>
+        <a href="../en/privacy.html">Política de Privacidade (em inglês)</a>
+        <a href="../en/terms.html">Termos de Uso (em inglês)</a>
+      </nav>
+    </div>
+    <p>Mac e macOS são marcas da Apple Inc. Windows é marca da Microsoft Corporation. Photoshop é marca da Adobe. Outros nomes de produtos são marcas de seus respectivos donos.</p>
+  </footer>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

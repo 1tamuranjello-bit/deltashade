@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DeltaShade｜用 Lab 和 ΔE 比较照片中的牙齿颜色</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<meta property="og:title" content="DeltaShade">
+<meta property="og:description" content="为牙科技师打造的比色应用：用 L*a*b* 值和 ΔE（CIEDE2000）比较照片中的牙齿颜色。支持 Mac 和 Windows。">
+<meta property="og:image" content="https://deltashade.app/icon.png">
+<meta name="description" content="为牙科技师打造的比色应用：用 L*a*b* 值和 ΔE（CIEDE2000）比较照片中的牙齿颜色。支持 Mac 和 Windows。">
+<link rel="alternate" hreflang="ja" href="https://deltashade.app/">
+<link rel="alternate" hreflang="en" href="https://deltashade.app/en/">
+<link rel="alternate" hreflang="de" href="https://deltashade.app/de/">
+<link rel="alternate" hreflang="ko" href="https://deltashade.app/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://deltashade.app/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://deltashade.app/zh-hant/">
+<link rel="alternate" hreflang="pt-BR" href="https://deltashade.app/pt-br/">
+<link rel="alternate" hreflang="pt-PT" href="https://deltashade.app/pt-pt/">
+<link rel="alternate" hreflang="es" href="https://deltashade.app/es/">
+<link rel="alternate" hreflang="x-default" href="https://deltashade.app/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html"><b>DeltaShade</b><span>比色应用</span></a>
+    <nav class="top" aria-label="本页">
+      <a href="#features">功能</a>
+      <a href="#windows">Windows</a>
+      <a href="#how">用法</a>
+      <a href="#accuracy">精度</a>
+      <a href="#price">价格</a>
+      <a href="install.html">安装方法</a>
+    </nav>
+    <details class="langnav"><summary aria-label="语言"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 8h13M8 1.5c2 2 2.8 4.2 2.8 6.5S10 12.5 8 14.5M8 1.5C6 3.5 5.2 5.7 5.2 8S6 12.5 8 14.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>简体中文</summary><ul><li><a href="../index.html" lang="ja" hreflang="ja">日本語</a></li><li><a href="../en/index.html" lang="en" hreflang="en">English</a></li><li><a href="../de/index.html" lang="de" hreflang="de">Deutsch</a></li><li><a href="../ko/index.html" lang="ko" hreflang="ko">한국어</a></li><li><a href="../zh-hans/index.html" lang="zh-Hans" hreflang="zh-Hans" aria-current="true">简体中文</a></li><li><a href="../zh-hant/index.html" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li><li><a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></li><li><a href="../pt-pt/index.html" lang="pt-PT" hreflang="pt-PT">Português (Portugal)</a></li><li><a href="../es/index.html" lang="es" hreflang="es">Español</a></li></ul></details>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Shade comparison for dental technicians</p>
+      <h1>用 <em>Lab 值和 ΔE</em><br>比较照片中的牙齿颜色。</h1>
+      <p class="lead">只需把光标放在用“预览”或 Photoshop 打开的口内照片上。即使点按照片也不会被遮住，L、a、b 始终显示在光标旁边，按一下键就能知道与基准点的色差（CIEDE2000）。</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#price">¥2,000 购买</a>
+        <a class="btn ghost" href="#how">查看用法</a>
+      </div>
+      <div class="platforms">
+        <span class="platform">Mac（Apple 芯片）</span>
+        <span class="platform">Windows 11</span>
+        <span class="platform">9 种语言</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+    <div class="scene" role="img" aria-label="DeltaShade 使用画面示意：光标放在照片中的前牙上时，旁边显示 Lab 值及与基准点的 ΔE，右上方浮着比较窗口">
+      <div class="menubar-mock" aria-hidden="true"><span class="apple">●</span><span>预览</span><span class="dim">文件　编辑　显示</span><span class="spacer"></span><svg class="de-glyph" viewBox="0 0 18 18"><path d="M2.5 14 L6.5 4 L10.5 14 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><text x="11" y="14" font-family="Georgia, serif" font-size="9.5" font-style="italic" font-weight="700" fill="currentColor">E</text></svg><span class="dim">10:42</span></div>
+      <div class="viewer" aria-hidden="true">
+        <div class="viewer-bar"><i></i><i></i><i></i><span>IMG_2041.jpg</span></div>
+        <div class="viewer-body">
+          <img class="smile" src="../assets/smile.jpg" alt="" width="1400" height="933">
+          <div class="ref-mark" style="left:40%;top:45.9%"><span>基准点</span></div>
+          <div class="cursor" id="hv-cursor" style="left:76.2%;top:45.9%"><svg width="16" height="22" viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+          <div class="overlay flip" id="hv-overlay" style="left:76.2%;top:45.9%">
+            <div class="de"><span>ΔE00</span><em class="de-blue" id="hv-de">2.91</em></div>
+            <div class="row">
+              <div class="chip" id="hv-chip" style="background:#f0ddc3"></div>
+              <table>
+                <tr><td>L</td><td id="hv-L">89.38</td><td class="diff" id="hv-dL">(−2.56)</td></tr>
+                <tr><td>a</td><td id="hv-a">3.53</td><td class="diff" id="hv-da">(+0.73)</td></tr>
+                <tr><td>b</td><td id="hv-b">15.13</td><td class="diff" id="hv-db">(+3.81)</td></tr>
+              </table>
+            </div></div>
+          </div>
+        </div>
+      <div class="mini-compare" aria-hidden="true">
+        <div class="mc-title">比较</div>
+        <div class="mc-labels"><span>基准点</span><span>当前</span></div>
+        <div class="mc-swatches"><div style="background:#f4e5d2"></div><div id="mc-cur" style="background:#f0ddc3"></div></div>
+        <table>
+          <tr><th></th><th>基准</th><th>差值</th><th>当前</th></tr>
+          <tr><td>L</td><td>91.94</td><td class="d" id="mc-dL">−2.56</td><td id="mc-L">89.38</td></tr>
+          <tr><td>a</td><td>2.80</td><td class="d" id="mc-da">+0.73</td><td id="mc-a">3.53</td></tr>
+          <tr><td>b</td><td>11.32</td><td class="d" id="mc-db">+3.81</td><td id="mc-b">15.13</td></tr>
+        </table>
+        <div class="mc-total"><span>ΔE00</span><b class="de-blue" id="mc-de">2.91</b></div>
+      </div>
+    </div>
+    <ol class="scene-steps">
+      <li><span class="step-key"><kbd>Shift</kbd><kbd>Shift</kbd></span>在作为基准的牙齿上连按两次</li>
+      <li><span class="step-key"><svg viewBox="0 0 14 20" aria-hidden="true"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="currentColor"/></svg><span class="arrow">→</span></span>只需把光标移到要比较的牙齿上</li>
+      <li><span class="step-key"><span class="de-green">ΔE</span></span>光标旁和比较窗口中显示色差</li>
+    </ol>
+    </div>
+  </section>
+</div>
+
+<section class="block" id="front">
+  <div class="wrap">
+    <p class="eyebrow">Always in front</p>
+    <h2>点按照片，数值也不会被遮住</h2>
+    <p class="sub">“数码测色计”是普通窗口，一点按照片窗口就会躲到后面。DeltaShade 的数值始终显示在光标旁边、所有窗口的最前面。</p>
+    <div class="front-demo" role="img" aria-label="点按照片窗口后，数码测色计的窗口躲到照片后面，而 DeltaShade 的数值和比较窗口仍留在最前面">
+      <figure class="fd-panel">
+        <figcaption><span class="tag">数码测色计</span></figcaption>
+        <div class="fd-desk">
+          <div class="fd-photo fd-raise"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><img src="../assets/smile.jpg" alt=""></div>
+          <div class="fd-meter"><div class="fd-bar"><i></i><i></i><i></i>测色计</div><div class="fd-meter-body"><div class="fd-mag" style="background:#f0ddc3"></div><div class="fd-vals">L* 89.4<br>a* 3.5<br>b* 15.1</div></div></div>
+          <div class="fd-cursor"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="fd-click"></div>
+          <p class="fd-note bad">点按照片后，数值窗口躲到后面</p>
+        </div>
+      </figure>
+      <figure class="fd-panel">
+        <figcaption><span class="tag ours">DeltaShade</span></figcaption>
+        <div class="fd-desk">
+          <div class="fd-photo fd-raise"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><img src="../assets/smile.jpg" alt=""></div>
+          <div class="fd-cursor"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></div><div class="fd-click"></div>
+          <div class="fd-ds"><div class="de"><span>ΔE00</span><em class="de-blue">2.91</em></div><div class="row"><div class="chip" style="background:#f0ddc3"></div><table><tr><td>L</td><td>89.38</td><td class="diff">(−2.56)</td></tr><tr><td>a</td><td>3.53</td><td class="diff">(+0.73)</td></tr><tr><td>b</td><td>15.13</td><td class="diff">(+3.81)</td></tr></table></div></div>
+          <div class="fd-compare">
+            <div class="fdc-title">比较</div>
+            <div class="fdc-labels"><span>基准点</span><span>当前</span></div>
+            <div class="fdc-sw"><div style="background:#f4e5d2"></div><div class="fdc-cur" style="background:#f0ddc3"></div></div>
+            <table>
+              <tr><th></th><th>基准</th><th>差值</th><th>当前</th></tr>
+              <tr><td>L</td><td>91.94</td><td class="d fdc-dL">−2.56</td><td class="fdc-L">89.38</td></tr>
+              <tr><td>a</td><td>2.80</td><td class="d fdc-da">+0.73</td><td class="fdc-a">3.53</td></tr>
+              <tr><td>b</td><td>11.32</td><td class="d fdc-db">+3.81</td><td class="fdc-b">15.13</td></tr>
+            </table>
+            <div class="fdc-de">ΔE00 <b class="de-blue">2.91</b></div>
+          </div>
+          <p class="fd-note good">随便点按，数值和比较窗口都留在最前面</p>
+        </div>
+      </figure>
+    </div>
+    <div class="versus">
+      <div class="vs-card">
+        <span class="tag">数码测色计</span>
+        <ul>
+          <li>数值显示在屏幕角落的单独窗口里</li>
+          <li>为了缩放或移动照片而点按时，它会躲到后面</li>
+          <li>每次看数值都要找到窗口并重新调到前面</li>
+        </ul>
+      </div>
+      <div class="vs-card ours">
+        <span class="tag">DeltaShade</span>
+        <ul>
+          <li>数值显示在光标旁边，无需移开视线</li>
+          <li>即使点按照片，也始终显示在最前面</li>
+          <li>比较窗口也一直浮在前面，工作不会中断</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="features">
+  <div class="wrap">
+    <p class="eyebrow">Features</p>
+    <h2>只做比色真正需要的事</h2>
+    <p class="sub">一个不打扰平时所用的看图软件、只在旁边默默工作的小工具。</p>
+    <div class="features">
+      <div class="feature">
+        <span class="num">L* a* b*</span>
+        <h3>始终显示在光标旁</h3>
+        <p>每秒约 15 次读取光标下的颜色，并在光标旁边显示色块和 L、a、b。</p>
+      </div>
+      <div class="feature">
+        <span class="num">ΔE00 / ΔE94 / ΔE76</span>
+        <h3>与基准点的色差</h3>
+        <p>设定基准点后，立即计算与光标位置的 ΔE。默认使用 CIEDE2000，也可在设置中切换为 CIE94 或 CIE76。</p>
+      </div>
+      <div class="feature">
+        <span class="num">11 × 11 pt</span>
+        <h3>与数码测色计相同的光圈</h3>
+        <p>光圈大小为 1～11 共 6 档（默认最大）。以与 macOS 自带的数码测色计相同的方式，对相同范围取平均值。</p>
+      </div>
+    </div>
+
+    <div class="compare-area">
+      <div class="win" aria-label="比较窗口的还原图">
+        <div class="titlebar"><i></i><b>比较</b></div>
+        <div class="body">
+          <div class="note">清除基准点：同时按 Shift + Control</div>
+          <hr>
+          <div class="swatch-labels"><span>基准点：连按两次 Shift</span><span>比较点：连按两次 Control</span></div>
+          <div class="swatches"><div></div><div></div></div>
+          <table>
+            <tr><th></th><th>基准</th><th>差值</th><th>当前</th></tr>
+            <tr><td>L</td><td>78.48</td><td class="d">−4.27</td><td>74.21</td></tr>
+            <tr><td>a</td><td>5.25</td><td class="d">+2.02</td><td>7.27</td></tr>
+            <tr><td>b</td><td>16.56</td><td class="d">+2.81</td><td>19.37</td></tr>
+          </table>
+          <hr>
+          <div class="total"><span>ΔE00</span><b class="de-orange">3.79</b></div>
+        </div>
+      </div>
+      <div class="points">
+        <div>
+          <h3>基准与当前并排显示</h3>
+          <p>比较窗口左右并排显示基准点和当前光标位置的颜色，L、a、b 各自的差值和 ΔE 一目了然。</p>
+        </div>
+        <div>
+          <h3>最多记录 5 个比较点</h3>
+          <p>保存关注的位置后，可在菜单栏的列表中随时回看时间、色块、Lab 以及与基准点的 ΔE。</p>
+        </div>
+        <div>
+          <h3>不会抢走点按操作</h3>
+          <p>所有操作都是连按两次按键，不会影响“预览”或 Photoshop 中的点按和右键菜单。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="windows">
+  <div class="wrap">
+    <p class="eyebrow">Mac &amp; Windows</p>
+    <h2>Windows 没有用 Lab 查看屏幕颜色的自带工具</h2>
+    <p class="sub">Mac 自带“数码测色计”，而 Windows 没有相应的自带工具。DeltaShade 在 Mac 和 Windows 上界面相同、按键操作相同。</p>
+    <div class="windows">
+      <div class="os-card">
+        <span class="tag">Mac</span>
+        <h3>把数码测色计变成比色工具</h3>
+        <p>数值的测量方式与数码测色计完全相同，并增加了光标旁常驻显示、与基准点的 ΔE 以及比较点记录。</p>
+      </div>
+      <div class="os-card">
+        <span class="tag">Windows</span>
+        <h3>Windows 上也能用相同操作查看 Lab 和 ΔE</h3>
+        <p>连按两次 Shift 设定基准点，连按两次 Ctrl 保存比较点，与 Mac 版界面和操作相同。会读取显示器的颜色描述文件来计算 Lab。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <p class="eyebrow">How to use</p>
+    <h2>只有 3 种按键操作</h2>
+    <p class="sub">把光标放在要测量的位置，然后按键。</p>
+    <div class="keys">
+      <div class="key">
+        <div class="combo"><kbd>Shift</kbd><kbd>Shift</kbd></div>
+        <h3>设定基准点</h3>
+        <p>快速连按两次，比较窗口随即打开。</p>
+      </div>
+      <div class="key">
+        <div class="combo"><kbd>Control</kbd><kbd>Control</kbd></div>
+        <h3>保存比较点</h3>
+        <p>快速连按两次，依次存入空位。</p>
+      </div>
+      <div class="key">
+        <div class="combo"><kbd>Shift</kbd>+<kbd>Control</kbd></div>
+        <h3>清除基准点</h3>
+        <p>同时按下即可清除基准点。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="accuracy">
+  <div class="wrap">
+    <p class="eyebrow">Accuracy</p>
+    <h2>与数码测色计一致到小数点后一位</h2>
+    <p class="sub">Mac 版以与 macOS 自带的数码测色计相同的方式读取颜色并转换为 Lab。以下是开发期间用真实牙齿和牙龈照片比较的结果（光圈大小 11）。</p>
+    <div class="accuracy">
+      <table>
+        <tr><th>测量部位</th><th>数码测色计 (L / a / b)</th><th>DeltaShade (L / a / b)</th><th>最大差</th></tr>
+        <tr><td>牙齿 1</td><td class="m">78.48 / 5.25 / 16.56</td><td class="m">78.49 / 5.25 / 16.56</td><td class="m">0.01</td></tr>
+        <tr><td>牙齿 2</td><td class="m">74.21 / 7.27 / 19.37</td><td class="m">74.22 / 7.27 / 19.37</td><td class="m">0.01</td></tr>
+        <tr><td>牙齿 3</td><td class="m">70.04 / 7.52 / 21.60</td><td class="m">70.05 / 7.51 / 21.61</td><td class="m">0.02</td></tr>
+        <tr><td>牙龈</td><td class="m">26.20 / 29.24 / 16.94</td><td class="m">26.20 / 29.24 / 16.94</td><td class="m">0.01</td></tr>
+      </table>
+    </div>
+    <p class="fine">数值是“照片中记录的颜色”，会受拍摄条件（光源、曝光、白平衡）影响。建议比较用灰卡等统一条件拍摄的照片。</p>
+  </div>
+</section>
+
+<section class="block" id="price">
+  <div class="wrap">
+    <p class="eyebrow">Price</p>
+    <h2>一次买断 ¥2,000</h2>
+    <div class="price">
+      <div class="plan">
+        <p>DeltaShade 1 个许可证（Mac、Windows 通用）</p>
+        <p class="amount">¥2,000<small>含税・一次买断</small></p>
+        <ul>
+          <li>购买后立即下载，许可证密钥通过邮件发送</li>
+          <li>1 个许可证可用于 Mac 和 Windows 合计 2 台电脑</li>
+          <li>修复问题的更新免费</li>
+        </ul>
+        <a class="btn primary" href="#price" aria-disabled="true">前往购买（准备中）</a>
+        <p class="fine">付款通过支付代理服务 Lemon Squeezy（美国）进行。可使用信用卡、PayPal、Apple Pay、Google Pay 等。价格以日元标示，由发卡机构换算为你的货币。</p>
+      </div>
+      <div class="spec">
+        <dl>
+          <dt>Mac</dt><dd>所有搭载 Apple 芯片（M1 及更新）的 Mac，macOS 26 或更高版本（Apple 芯片 Mac 可免费升级）。不支持搭载 Intel 处理器的 Mac。</dd>
+          <dt>Windows</dt><dd>Windows 11（64 位）</dd>
+          <dt>所需权限</dt><dd>仅 Mac：屏幕录制、辅助功能（首次启动时会有引导）</dd>
+          <dt>语言</dt><dd>日本語 · English · Deutsch · 한국어 · 简体中文 · 繁體中文 · Português (Brasil · Portugal) · Español</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="install">
+  <div class="wrap">
+    <p class="eyebrow">Install</p>
+    <h2>首次打开时的步骤</h2>
+    <p class="sub">DeltaShade 由个人开发，没有加入 Apple 或 Microsoft 的付费开发者计划。因此仅在首次打开时，需要在确认画面中进行以下操作。</p>
+    <div class="install-cols">
+      <div>
+        <h3>Mac</h3>
+        <ol class="install">
+          <li>打开下载的 dmg，把 DeltaShade 拖到“应用程序”文件夹。</li>
+          <li>连按 DeltaShade。如果出现无法打开的提示，请点按“完成”。</li>
+          <li>打开“系统设置”→“隐私与安全性”，在下方 DeltaShade 旁点按“仍要打开”。</li>
+          <li>按照引导允许“屏幕录制”和“辅助功能”。</li>
+          <li>打开菜单栏中的 ΔE 图标，输入邮件中的许可证密钥。</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Windows</h3>
+        <ol class="install">
+          <li>双击下载的 DeltaShade-Setup.exe。</li>
+          <li>如果出现“Windows 已保护你的电脑”，请点击“更多信息”→“仍要运行”。</li>
+          <li>按照画面引导完成安装，无需管理员权限。</li>
+          <li>打开通知区域中的 ΔE 图标，输入邮件中的许可证密钥。</li>
+        </ol>
+      </div>
+    </div>
+    <p class="cta-row"><a class="btn ghost" href="install.html">查看每个画面的详细步骤 →</a></p>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2>常见问题</h2>
+    <div class="faq">
+      <details>
+        <summary>屏幕录制和辅助功能权限用来做什么？</summary>
+        <p>屏幕录制用于读取光标位置的颜色，辅助功能用于检测连按两次 Shift、Control。不会保存屏幕图像，也不会发送到外部。</p>
+      </details>
+      <details>
+        <summary>出现“Apple 无法验证…”或“Windows 已保护你的电脑”，安全吗？</summary>
+        <p>未加入 Apple 或 Microsoft 付费开发者计划的个人开发应用会出现此提示。按照上面“首次打开时的步骤”允许一次，之后即可正常启动。</p>
+      </details>
+      <details>
+        <summary>更改显示器的颜色描述文件后，数值会变吗？</summary>
+        <p>与数码测色计一样，会通过显示所用的描述文件反算，因此大多数情况下不会变。只有显示器无法显示的非常鲜艳的颜色可能会变。</p>
+      </details>
+      <details>
+        <summary>能测量口腔内的真实颜色吗？</summary>
+        <p>不能。DeltaShade 显示的是照片中记录的颜色，不能代替测色仪，也不能用于诊断。请用于比较拍摄条件一致的照片。</p>
+      </details>
+      <details>
+        <summary>能在 Intel Mac 上使用吗？</summary>
+        <p>不能。需要搭载 Apple 芯片（M1 及更新）的 Mac。</p>
+      </details>
+      <details>
+        <summary>Mac 和 Windows 上的数值相同吗？</summary>
+        <p>两者使用相同的公式计算，但各操作系统处理屏幕颜色的方式不同，因此不会完全相同。开发期间的测试中，同一色样的差异约在 0.7 以内。请始终在同一台电脑上进行比较。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer class="site">
+    <div class="row">
+      <span>© Owl Dental Create</span>
+      <nav aria-label="法律信息">
+        <a href="../tokushoho.html">基于日本特定商业交易法的标示（日语）</a>
+        <a href="../en/privacy.html">隐私政策（英语）</a>
+        <a href="../en/terms.html">使用条款（英语）</a>
+      </nav>
+    </div>
+    <p>Mac、macOS 是 Apple Inc. 的商标。Windows 是 Microsoft Corporation 的商标。Photoshop 是 Adobe 的商标。其他产品名称是其各自所有者的商标。</p>
+  </footer>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

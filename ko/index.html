@@ -32,6 +32,7 @@
   <header class="top">
     <a class="brand" href="index.html"><b>DeltaShade</b><span>셰이드 비교 앱</span></a>
     <nav class="top" aria-label="페이지 내">
+      <a href="#v2">버전 2</a>
       <a href="#features">기능</a>
       <a href="#windows">Windows</a>
       <a href="#how">사용법</a>
@@ -101,6 +102,62 @@
   </section>
 </div>
 
+<section class="block" id="v2">
+  <div class="wrap">
+    <p class="eyebrow">Version 2 <span class="v2-new">NEW</span></p>
+    <h2>커서 끝에, 기준점의 색</h2>
+    <p class="sub">기준점을 정하면 커서 끝에 기준점 색의 작은 사각형이 따라옵니다. 비교 창을 보러 가지 않아도, 지금 보고 있는 곳의 색과 기준점의 색을 커서 옆에서 바로 견줄 수 있습니다.</p>
+    <div class="front-demo v2-demo" role="img" aria-label="버전 2 화면 이미지. 왼쪽은 사진 속 셰이드 가이드의 탭에 기준점을 정한 모습. 오른쪽은 커서를 치아로 옮기면 끝의 왼쪽 위에 기준점 색의 사각형이 붙어 치아 색과 견줄 수 있는 모습.">
+      <figure class="v2-panel">
+        <figcaption><span class="tag ours">STEP 1</span></figcaption>
+        <div class="fd-desk">
+          <div class="v2-viewer">
+            <div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div>
+            <div class="v2-photo">
+              <img src="../assets/smile-guide.jpg" alt="" width="1400" height="933">
+              <div class="v2-pt" id="v2-pt1" style="left:28.6%;top:80.5%">
+                <span class="v2-tip" id="v2-tip1"><em>기준점</em></span>
+                <span class="v2-ring" id="v2-ring"></span>
+                <span class="v2-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                <div class="fd-ds v2-ds up" id="v2-ds1"><div class="de"><span>ΔE00</span><em class="de-green">0.00</em></div><div class="row"><div class="chip" style="background:#e2d3c5"></div><table><tr><td>L</td><td>85.38</td><td class="diff">(+0.00)</td></tr><tr><td>a</td><td>3.76</td><td class="diff">(+0.00)</td></tr><tr><td>b</td><td>8.76</td><td class="diff">(+0.00)</td></tr></table></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>셰이드 가이드로 기준점 정하기</h3>
+        <p>사진에 찍힌 셰이드 가이드의 탭에 커서를 올리고 Shift를 두 번 누르세요. 그 탭의 색이 기준점이 됩니다.</p>
+      </figure>
+      <figure class="v2-panel">
+        <figcaption><span class="tag ours">STEP 2</span></figcaption>
+        <div class="fd-desk">
+          <div class="v2-viewer">
+            <div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div>
+            <div class="v2-photo">
+              <img src="../assets/smile-guide.jpg" alt="" width="1400" height="933">
+              <div class="v2-pt" id="v2-pt2" style="left:60%;top:48.8%">
+                <span class="v2-tip" id="v2-tip"><em>기준점</em></span>
+                <span class="v2-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                <span class="v2-here">지금 보는 곳</span>
+                <div class="fd-ds v2-ds" id="v2-ds"><div class="de"><span>ΔE00</span><em class="de-red">8.56</em></div><div class="row"><div class="chip" style="background:#e9c9a5"></div><table><tr><td>L</td><td>83.07</td><td class="diff">(−2.32)</td></tr><tr><td>a</td><td>8.04</td><td class="diff">(+4.27)</td></tr><tr><td>b</td><td>22.60</td><td class="diff">(+13.84)</td></tr></table></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>치아로 옮겨서 견주기</h3>
+        <p>커서를 치아로 옮겨도 끝의 사각형은 기준점의 색 그대로 따라옵니다. 시선을 옮기지 않고 사각형과 실제 치아 색을 나란히 볼 수 있습니다.</p>
+      </figure>
+    </div>
+    <div class="vs-card ours v2-list">
+      <span class="tag">버전 2의 변경점</span>
+      <ul>
+        <li>기준점이 있을 때 커서 끝에 기준점 색의 작은 사각형을 표시합니다 (Mac·Windows 공통)</li>
+        <li>사각형은 색을 읽을 때 화면에서 제외되므로 측정값에 영향을 주지 않습니다</li>
+        <li>기준점을 지우거나 커서 옆 표시를 끄면 사각형도 사라집니다</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="front">
   <div class="wrap">
     <p class="eyebrow">Always in front</p>
@@ -156,6 +213,80 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="block" id="clinic">
+  <div class="wrap">
+    <p class="eyebrow">Built for the clinic</p>
+    <h2>일상 임상에 맞춘 컴팩트한 설계</h2>
+    <p class="sub">색 비교 전용 소프트웨어는 가격이 높고, 한 케이스에 화면의 대부분을 쓰는 것이 많습니다. DeltaShade는 여러 환자의 사진을 나란히 놓고 동시에 진행하는 일상 임상에 맞춰 작게 만들었습니다.</p>
+    <div class="front-demo cl-demo" role="img" aria-label="화면 사용 방식 비교 이미지. 왼쪽은 도구 버튼, 그래프, 큰 숫자 칸이 있는 전용 소프트웨어 하나가 화면을 거의 차지한 예(가상의 이미지). 오른쪽은 사진 4장을 나란히 둔 채 커서 옆에 작게 수치가 나오고 오른쪽 위에 비교 창이 떠 있는 DeltaShade의 예.">
+      <figure class="cl-panel">
+        <figcaption><span class="tag">일반적인 색 비교 소프트웨어</span></figcaption>
+        <div class="fd-desk cl-gdesk">
+          <div class="cl-big">
+            <div class="cl-gbar"><i></i><i></i><i></i></div>
+            <div class="cl-gtool"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><u></u><b></b><b></b></div>
+            <div class="cl-gbody">
+              <div class="cl-gside"><b></b><b></b><b></b><b></b><b></b><b></b></div>
+              <div class="cl-gphoto"><img src="../assets/smile.jpg" alt=""></div>
+              <div class="cl-ginsp">
+                <div class="cl-gtabs"><span class="on"></span><span></span><span></span></div>
+                <div class="cl-gwheel"></div>
+                <svg class="cl-gchart" viewBox="0 0 100 34" preserveAspectRatio="none"><polyline points="0,28 10,24 20,26 30,16 40,18 50,8 60,12 70,6 80,14 90,10 100,16" fill="none" stroke="#6fb6d4" stroke-width="1.6"/><polyline points="0,30 12,27 24,29 36,22 48,24 60,17 72,20 84,15 100,21" fill="none" stroke="#d99a5b" stroke-width="1.4"/></svg>
+                <div class="cl-gfields"><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <p class="fd-note bad">한 케이스가 화면을 거의 차지 (이미지)</p>
+        </div>
+      </figure>
+      <figure class="cl-panel">
+        <figcaption><span class="tag ours">DeltaShade</span></figcaption>
+        <div class="fd-desk">
+          <div class="cl-grid">
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div><div class="cl-ph"><img src="../assets/smile-guide.jpg" alt=""></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><div class="cl-ph"><img src="../assets/smile.jpg" alt=""></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2063.jpg</div><div class="cl-ph"><img src="../assets/smile.jpg" alt=""><span class="cl-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span><div class="fd-ds cl-ds"><div class="de"><span>ΔE00</span><em class="de-blue">2.91</em></div><div class="row"><div class="chip" style="background:#f0ddc3"></div><table><tr><td>L</td><td>89.38</td><td class="diff">(−2.56)</td></tr><tr><td>a</td><td>3.53</td><td class="diff">(+0.73)</td></tr><tr><td>b</td><td>15.13</td><td class="diff">(+3.81)</td></tr></table></div></div></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2071.jpg</div><div class="cl-ph"><img src="../assets/smile-guide.jpg" alt=""></div></div>
+          </div>
+          <div class="fd-compare cl-cmp">
+            <div class="fdc-title">비교</div>
+            <div class="fdc-labels"><span>기준점</span><span>현재</span></div>
+            <div class="fdc-sw"><div style="background:#f4e5d2"></div><div class="fdc-cur" style="background:#f0ddc3"></div></div>
+            <table>
+              <tr><th></th><th>기준</th><th>차이</th><th>현재</th></tr>
+              <tr><td>L</td><td>91.94</td><td class="d">−2.56</td><td>89.38</td></tr>
+              <tr><td>a</td><td>2.80</td><td class="d">+0.73</td><td>3.53</td></tr>
+              <tr><td>b</td><td>11.32</td><td class="d">+3.81</td><td>15.13</td></tr>
+            </table>
+            <div class="fdc-de">ΔE00 <b class="de-blue">2.91</b></div>
+          </div>
+          <p class="fd-note good">사진은 나란히 그대로. 표시는 커서 옆뿐</p>
+        </div>
+      </figure>
+    </div>
+    <div class="versus">
+      <div class="vs-card">
+        <span class="tag">일반적인 색 비교 소프트웨어</span>
+        <ul>
+          <li>가격이 높아 도입 문턱이 있음</li>
+          <li>케이스마다 화면을 크게 차지함</li>
+          <li>사진을 여러 장 나란히 놓고 진행하기엔 답답할 수 있음</li>
+        </ul>
+      </div>
+      <div class="vs-card ours">
+        <span class="tag">DeltaShade</span>
+        <ul>
+          <li>한 번 구매로 끝, 매달 드는 비용 없음</li>
+          <li>사진은 평소 쓰는 뷰어에 열어 둔 그대로. 표시는 커서 옆에만</li>
+          <li>여러 환자의 사진을 나란히 놓고 동시에 진행</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cl-lead">일상적인 셰이드 테이킹의 색 비교라면, 고가의 전용 소프트웨어가 없어도 이것으로 충분할지 모릅니다.</p>
+    <p class="cl-foot">※ 일반적인 경향에 대한 설명과 이미지입니다. 특정 제품을 가리키지 않으며, 특정 제품의 화면도 아닙니다.</p>
   </div>
 </section>
 

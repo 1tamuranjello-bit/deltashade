@@ -159,4 +159,69 @@
     }
     requestAnimationFrame(frame);
   })();
+  /* ---- バージョン2：左＝シェードガイドで基準点を決める ／ 右＝先端の四角を見ながら歯の上を動く（10 秒で 1 周） ---- */
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    var pt1 = $("v2-pt1"), ring = $("v2-ring"), tip1 = $("v2-tip1"), ds1 = $("v2-ds1"),
+        pt2 = $("v2-pt2"), ds2 = $("v2-ds");
+    if (!pt1 || !ring || !tip1 || !ds1 || !pt2 || !ds2) return;
+    if (RM) return;   // 動きを減らす設定のときは、基準点が決まった状態の静止画のまま
+    var REF2 = { L: 85.38, a: 3.76, b: 8.76 };                 // 左端のタブ（写真から実測）＝基準点
+    var S1 = { x: 46, y: 93, lab: { L: 78.17, a: 5.15, b: 7.34 } },     // 左の絵：出発点
+        T1 = { x: 28.6, y: 80.5, lab: REF2 };                           //         左端のタブ
+    var A = { x: 60.0, y: 48.8, lab: { L: 83.07, a: 8.04, b: 22.60 } }, // 右の絵：右中切歯
+        B = { x: 39.5, y: 48.8, lab: { L: 79.25, a: 9.36, b: 25.20 } }, //         左中切歯
+        C = { x: 23.5, y: 52.0, lab: { L: 77.34, a: 7.69, b: 21.14 } }; //         左側切歯
+    var CYCLE = 10000, T_CLICK = 2000, T_CLEAR = 8400;
+    // 左の絵：[開始, 終了, 出発点, 到着点, 基準点が決まっているか]
+    var SEG1 = [[0, 1600, S1, T1, false], [1600, T_CLICK, T1, T1, false], [T_CLICK, T_CLEAR, T1, T1, true],
+                [T_CLEAR, 9400, T1, S1, false], [9400, CYCLE, S1, S1, false]];
+    // 右の絵（基準点は決まった状態）：[開始, 終了, 出発点, 到着点]
+    var SEG2 = [[0, 3200, A, A], [3200, 4400, A, B], [4400, 5800, B, B], [5800, 7000, B, C], [7000, 8400, C, C], [8400, 9400, C, A], [9400, CYCLE, A, A]];
+    var t0 = performance.now(), clicked = false;
+    var st = [{ on: null, key: "", last: 0 }, { on: null, key: "", last: 0 }];
+
+    function rows(lab, withDiff) {
+      return ["L", "a", "b"].map(function (k) {
+        return "<tr><td>" + k + "</td><td>" + f2(lab[k]) + "</td>" + (withDiff ? '<td class="diff">(' + sd(lab[k] - REF2[k]) + ")</td>" : "") + "</tr>";
+      }).join("");
+    }
+    function showDs(el, lab, withRef) {   // カーソル横のパネル。基準点が決まっていれば ΔE と差分も出す（アプリと同じ）
+      var head = "";
+      if (withRef) { var de = ciede2000(REF2, lab); head = '<div class="de"><span>ΔE00</span><em class="' + cls(de) + '">' + f2(de) + "</em></div>"; }
+      el.innerHTML = head + '<div class="row"><div class="chip" style="background:' + labToHex(lab) + '"></div><table>' + rows(lab, withRef) + "</table></div>";
+    }
+    function segAt(list, t) {
+      for (var i = 0; i < list.length; i++) if (t >= list[i][0] && t < list[i][1]) return list[i];
+      return list[0];
+    }
+    // 動いている間は 1 秒に約 15 回読み直して揺れる。止まったらその場所の値で止まる
+    function drive(n, pt, ds, s, t, now, on) {
+      var moving = s[2] !== s[3], f = moving ? ease((t - s[0]) / (s[1] - s[0])) : 0;
+      pt.style.left = lerp(s[2].x, s[3].x, f) + "%"; pt.style.top = lerp(s[2].y, s[3].y, f) + "%";
+      var q = st[n];
+      if (moving) {
+        if (now - q.last > SAMPLE_MS || q.on !== on) { q.last = now; showDs(ds, jitter(mix(s[2].lab, s[3].lab, f)), on); }
+        q.key = "";
+      } else {
+        var key = s[2].x + "|" + on;
+        if (key !== q.key) { q.key = key; showDs(ds, s[2].lab, on); }
+      }
+      q.on = on;
+    }
+    function frame(now) {
+      var t = (now - t0) % CYCLE;
+      // 左の絵：タブへ移動 → クリック（Shift 2度押し）→ 基準点が決まり、先端の四角と ΔE 0.00 が出る
+      var s1 = segAt(SEG1, t), set = s1[4];
+      if (set) { if (!clicked) { clicked = true; ring.classList.remove("go"); void ring.offsetWidth; ring.classList.add("go"); } }
+      else clicked = false;
+      tip1.style.opacity = set ? 1 : 0;
+      drive(0, pt1, ds1, s1, t, now, set);
+      // 右の絵：基準点が決まったあとの絵。先端の四角と ΔE はずっと出しておく
+      drive(1, pt2, ds2, segAt(SEG2, t), t, now, true);
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
 })();

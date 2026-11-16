@@ -32,6 +32,7 @@
   <header class="top">
     <a class="brand" href="index.html"><b>DeltaShade</b><span>比色应用</span></a>
     <nav class="top" aria-label="本页">
+      <a href="#v2">版本 2</a>
       <a href="#features">功能</a>
       <a href="#windows">Windows</a>
       <a href="#how">用法</a>
@@ -101,6 +102,62 @@
   </section>
 </div>
 
+<section class="block" id="v2">
+  <div class="wrap">
+    <p class="eyebrow">Version 2 <span class="v2-new">NEW</span></p>
+    <h2>光标尖端，就是基准点的颜色</h2>
+    <p class="sub">设定基准点后，光标尖端会跟着一个基准点颜色的小方块。无需转头去看比较窗口，就能在光标旁边直接对比当前位置的颜色和基准点的颜色。</p>
+    <div class="front-demo v2-demo" role="img" aria-label="版本 2 的画面示意。左：在照片中比色板的色片上设定了基准点。右：把光标移到牙齿上，光标尖端左上方出现基准点颜色的方块，可与牙齿颜色对比。">
+      <figure class="v2-panel">
+        <figcaption><span class="tag ours">STEP 1</span></figcaption>
+        <div class="fd-desk">
+          <div class="v2-viewer">
+            <div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div>
+            <div class="v2-photo">
+              <img src="../assets/smile-guide.jpg" alt="" width="1400" height="933">
+              <div class="v2-pt" id="v2-pt1" style="left:28.6%;top:80.5%">
+                <span class="v2-tip" id="v2-tip1"><em>基准点</em></span>
+                <span class="v2-ring" id="v2-ring"></span>
+                <span class="v2-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                <div class="fd-ds v2-ds up" id="v2-ds1"><div class="de"><span>ΔE00</span><em class="de-green">0.00</em></div><div class="row"><div class="chip" style="background:#e2d3c5"></div><table><tr><td>L</td><td>85.38</td><td class="diff">(+0.00)</td></tr><tr><td>a</td><td>3.76</td><td class="diff">(+0.00)</td></tr><tr><td>b</td><td>8.76</td><td class="diff">(+0.00)</td></tr></table></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>用比色板设定基准点</h3>
+        <p>把光标放在照片里比色板的色片上，连按两次 Shift。该色片的颜色就成为基准点。</p>
+      </figure>
+      <figure class="v2-panel">
+        <figcaption><span class="tag ours">STEP 2</span></figcaption>
+        <div class="fd-desk">
+          <div class="v2-viewer">
+            <div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div>
+            <div class="v2-photo">
+              <img src="../assets/smile-guide.jpg" alt="" width="1400" height="933">
+              <div class="v2-pt" id="v2-pt2" style="left:60%;top:48.8%">
+                <span class="v2-tip" id="v2-tip"><em>基准点</em></span>
+                <span class="v2-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                <span class="v2-here">当前查看的位置</span>
+                <div class="fd-ds v2-ds" id="v2-ds"><div class="de"><span>ΔE00</span><em class="de-red">8.56</em></div><div class="row"><div class="chip" style="background:#e9c9a5"></div><table><tr><td>L</td><td>83.07</td><td class="diff">(−2.32)</td></tr><tr><td>a</td><td>8.04</td><td class="diff">(+4.27)</td></tr><tr><td>b</td><td>22.60</td><td class="diff">(+13.84)</td></tr></table></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>移到牙齿上对比</h3>
+        <p>把光标移到牙齿上，尖端的方块仍保持基准点的颜色。无需移开视线，就能把方块和实际牙齿的颜色并排看。</p>
+      </figure>
+    </div>
+    <div class="vs-card ours v2-list">
+      <span class="tag">版本 2 的变化</span>
+      <ul>
+        <li>设定基准点后，光标尖端显示基准点颜色的小方块（Mac 和 Windows 通用）</li>
+        <li>读取颜色时会把这个方块排除在外，因此不会影响数值</li>
+        <li>清除基准点或关闭光标旁的显示，方块也会消失</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="front">
   <div class="wrap">
     <p class="eyebrow">Always in front</p>
@@ -156,6 +213,80 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="block" id="clinic">
+  <div class="wrap">
+    <p class="eyebrow">Built for the clinic</p>
+    <h2>为日常临床而设计的紧凑体验</h2>
+    <p class="sub">专用的比色软件往往价格较高，处理一个病例就占用大半个屏幕。DeltaShade 为需要同时并排处理多位患者照片的日常临床而设计，做得小巧。</p>
+    <div class="front-demo cl-demo" role="img" aria-label="屏幕使用方式的对比示意。左：一个带有工具按钮、图表和大数字栏的专用软件占据了大半个屏幕（虚构示意）。右：DeltaShade 并排显示四张照片，光标旁只显示小小的数值，右上方浮着比较窗口。">
+      <figure class="cl-panel">
+        <figcaption><span class="tag">常见的比色软件</span></figcaption>
+        <div class="fd-desk cl-gdesk">
+          <div class="cl-big">
+            <div class="cl-gbar"><i></i><i></i><i></i></div>
+            <div class="cl-gtool"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><u></u><b></b><b></b></div>
+            <div class="cl-gbody">
+              <div class="cl-gside"><b></b><b></b><b></b><b></b><b></b><b></b></div>
+              <div class="cl-gphoto"><img src="../assets/smile.jpg" alt=""></div>
+              <div class="cl-ginsp">
+                <div class="cl-gtabs"><span class="on"></span><span></span><span></span></div>
+                <div class="cl-gwheel"></div>
+                <svg class="cl-gchart" viewBox="0 0 100 34" preserveAspectRatio="none"><polyline points="0,28 10,24 20,26 30,16 40,18 50,8 60,12 70,6 80,14 90,10 100,16" fill="none" stroke="#6fb6d4" stroke-width="1.6"/><polyline points="0,30 12,27 24,29 36,22 48,24 60,17 72,20 84,15 100,21" fill="none" stroke="#d99a5b" stroke-width="1.4"/></svg>
+                <div class="cl-gfields"><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <p class="fd-note bad">一个病例占满屏幕（示意）</p>
+        </div>
+      </figure>
+      <figure class="cl-panel">
+        <figcaption><span class="tag ours">DeltaShade</span></figcaption>
+        <div class="fd-desk">
+          <div class="cl-grid">
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div><div class="cl-ph"><img src="../assets/smile-guide.jpg" alt=""></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><div class="cl-ph"><img src="../assets/smile.jpg" alt=""></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2063.jpg</div><div class="cl-ph"><img src="../assets/smile.jpg" alt=""><span class="cl-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span><div class="fd-ds cl-ds"><div class="de"><span>ΔE00</span><em class="de-blue">2.91</em></div><div class="row"><div class="chip" style="background:#f0ddc3"></div><table><tr><td>L</td><td>89.38</td><td class="diff">(−2.56)</td></tr><tr><td>a</td><td>3.53</td><td class="diff">(+0.73)</td></tr><tr><td>b</td><td>15.13</td><td class="diff">(+3.81)</td></tr></table></div></div></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2071.jpg</div><div class="cl-ph"><img src="../assets/smile-guide.jpg" alt=""></div></div>
+          </div>
+          <div class="fd-compare cl-cmp">
+            <div class="fdc-title">比较</div>
+            <div class="fdc-labels"><span>基准点</span><span>当前</span></div>
+            <div class="fdc-sw"><div style="background:#f4e5d2"></div><div class="fdc-cur" style="background:#f0ddc3"></div></div>
+            <table>
+              <tr><th></th><th>基准</th><th>差值</th><th>当前</th></tr>
+              <tr><td>L</td><td>91.94</td><td class="d">−2.56</td><td>89.38</td></tr>
+              <tr><td>a</td><td>2.80</td><td class="d">+0.73</td><td>3.53</td></tr>
+              <tr><td>b</td><td>11.32</td><td class="d">+3.81</td><td>15.13</td></tr>
+            </table>
+            <div class="fdc-de">ΔE00 <b class="de-blue">2.91</b></div>
+          </div>
+          <p class="fd-note good">照片保持并排，数值只在光标旁</p>
+        </div>
+      </figure>
+    </div>
+    <div class="versus">
+      <div class="vs-card">
+        <span class="tag">常见的比色软件</span>
+        <ul>
+          <li>价格较高，入门门槛高</li>
+          <li>每个病例都会占用很大的屏幕空间</li>
+          <li>并排处理很多张照片时会显得局促</li>
+        </ul>
+      </div>
+      <div class="vs-card ours">
+        <span class="tag">DeltaShade</span>
+        <ul>
+          <li>一次买断，没有月费</li>
+          <li>照片仍在您常用的看图软件中打开，数值只在光标旁显示</li>
+          <li>并排处理多位患者的照片</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cl-lead">对于日常比色，也许不需要昂贵的专用软件。</p>
+    <p class="cl-foot">※ 本文是对一般倾向的描述，配图仅为示意。不指向任何特定产品，配图也不是任何特定产品的画面。</p>
   </div>
 </section>
 

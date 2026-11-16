@@ -32,6 +32,7 @@
   <header class="top">
     <a class="brand" href="index.html"><b>DeltaShade</b><span>Aplicação de comparação de cores</span></a>
     <nav class="top" aria-label="Nesta página">
+      <a href="#v2">Versão 2</a>
       <a href="#features">Funcionalidades</a>
       <a href="#windows">Windows</a>
       <a href="#how">Como utilizar</a>
@@ -101,6 +102,62 @@
   </section>
 </div>
 
+<section class="block" id="v2">
+  <div class="wrap">
+    <p class="eyebrow">Version 2 <span class="v2-new">NEW</span></p>
+    <h2>A cor de referência, na ponta do cursor</h2>
+    <p class="sub">Ao definir um ponto de referência, um pequeno quadrado na cor da referência passa a acompanhar a ponta do cursor. Sem olhar para a janela de comparação, compara a cor do local que está a ver com a referência, mesmo ao lado do cursor.</p>
+    <div class="front-demo v2-demo" role="img" aria-label="Imagem do ecrã da versão 2. À esquerda, o ponto de referência definido numa pastilha da escala de cor na fotografia. À direita, ao mover o cursor para o dente, surge um quadrado na cor da referência no canto superior esquerdo da ponta, para comparar com a cor do dente.">
+      <figure class="v2-panel">
+        <figcaption><span class="tag ours">STEP 1</span></figcaption>
+        <div class="fd-desk">
+          <div class="v2-viewer">
+            <div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div>
+            <div class="v2-photo">
+              <img src="../assets/smile-guide.jpg" alt="" width="1400" height="933">
+              <div class="v2-pt" id="v2-pt1" style="left:28.6%;top:80.5%">
+                <span class="v2-tip" id="v2-tip1"><em>Referência</em></span>
+                <span class="v2-ring" id="v2-ring"></span>
+                <span class="v2-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                <div class="fd-ds v2-ds up" id="v2-ds1"><div class="de"><span>ΔE00</span><em class="de-green">0.00</em></div><div class="row"><div class="chip" style="background:#e2d3c5"></div><table><tr><td>L</td><td>85.38</td><td class="diff">(+0.00)</td></tr><tr><td>a</td><td>3.76</td><td class="diff">(+0.00)</td></tr><tr><td>b</td><td>8.76</td><td class="diff">(+0.00)</td></tr></table></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Defina a referência na escala de cor</h3>
+        <p>Coloque o cursor sobre uma pastilha da escala de cor na fotografia e prima Shift duas vezes. A cor dessa pastilha passa a ser a referência.</p>
+      </figure>
+      <figure class="v2-panel">
+        <figcaption><span class="tag ours">STEP 2</span></figcaption>
+        <div class="fd-desk">
+          <div class="v2-viewer">
+            <div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div>
+            <div class="v2-photo">
+              <img src="../assets/smile-guide.jpg" alt="" width="1400" height="933">
+              <div class="v2-pt" id="v2-pt2" style="left:60%;top:48.8%">
+                <span class="v2-tip" id="v2-tip"><em>Referência</em></span>
+                <span class="v2-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                <span class="v2-here">Local que está a ver</span>
+                <div class="fd-ds v2-ds" id="v2-ds"><div class="de"><span>ΔE00</span><em class="de-red">8.56</em></div><div class="row"><div class="chip" style="background:#e9c9a5"></div><table><tr><td>L</td><td>83.07</td><td class="diff">(−2.32)</td></tr><tr><td>a</td><td>8.04</td><td class="diff">(+4.27)</td></tr><tr><td>b</td><td>22.60</td><td class="diff">(+13.84)</td></tr></table></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Leve-o ao dente e compare</h3>
+        <p>Ao mover o cursor para o dente, o quadrado na ponta mantém a cor da referência. Vê-o ao lado da cor real do dente sem desviar o olhar.</p>
+      </figure>
+    </div>
+    <div class="vs-card ours v2-list">
+      <span class="tag">Novidades da versão 2</span>
+      <ul>
+        <li>Com uma referência definida, aparece na ponta do cursor um pequeno quadrado na cor da referência (Mac e Windows)</li>
+        <li>O quadrado fica de fora da leitura do ecrã, por isso não afeta os valores</li>
+        <li>Ao limpar o ponto de referência ou desativar a apresentação junto ao cursor, o quadrado também desaparece</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="front">
   <div class="wrap">
     <p class="eyebrow">Always in front</p>
@@ -156,6 +213,80 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="block" id="clinic">
+  <div class="wrap">
+    <p class="eyebrow">Built for the clinic</p>
+    <h2>Compacto, para a rotina clínica</h2>
+    <p class="sub">O software dedicado à comparação de cores costuma ser caro e ocupar grande parte do ecrã para um único caso. O DeltaShade foi feito pequeno, para a rotina clínica em que se trabalha com fotografias de vários pacientes lado a lado.</p>
+    <div class="front-demo cl-demo" role="img" aria-label="Comparação do uso do ecrã. À esquerda, um único programa dedicado, com botões de ferramentas, gráficos e campos numéricos grandes, ocupa quase todo o ecrã (ilustração fictícia). À direita, o DeltaShade, com quatro fotografias lado a lado, números pequenos junto ao cursor e uma janela de comparação a flutuar no canto superior direito.">
+      <figure class="cl-panel">
+        <figcaption><span class="tag">Software comum de comparação de cores</span></figcaption>
+        <div class="fd-desk cl-gdesk">
+          <div class="cl-big">
+            <div class="cl-gbar"><i></i><i></i><i></i></div>
+            <div class="cl-gtool"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><u></u><b></b><b></b></div>
+            <div class="cl-gbody">
+              <div class="cl-gside"><b></b><b></b><b></b><b></b><b></b><b></b></div>
+              <div class="cl-gphoto"><img src="../assets/smile.jpg" alt=""></div>
+              <div class="cl-ginsp">
+                <div class="cl-gtabs"><span class="on"></span><span></span><span></span></div>
+                <div class="cl-gwheel"></div>
+                <svg class="cl-gchart" viewBox="0 0 100 34" preserveAspectRatio="none"><polyline points="0,28 10,24 20,26 30,16 40,18 50,8 60,12 70,6 80,14 90,10 100,16" fill="none" stroke="#6fb6d4" stroke-width="1.6"/><polyline points="0,30 12,27 24,29 36,22 48,24 60,17 72,20 84,15 100,21" fill="none" stroke="#d99a5b" stroke-width="1.4"/></svg>
+                <div class="cl-gfields"><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <p class="fd-note bad">Um caso ocupa o ecrã (ilustração)</p>
+        </div>
+      </figure>
+      <figure class="cl-panel">
+        <figcaption><span class="tag ours">DeltaShade</span></figcaption>
+        <div class="fd-desk">
+          <div class="cl-grid">
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2050.jpg</div><div class="cl-ph"><img src="../assets/smile-guide.jpg" alt=""></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2041.jpg</div><div class="cl-ph"><img src="../assets/smile.jpg" alt=""></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2063.jpg</div><div class="cl-ph"><img src="../assets/smile.jpg" alt=""><span class="cl-cur"><svg viewBox="0 0 14 20"><path d="M1 1 L1 16 L5 12 L8 19 L10.5 18 L7.6 11.2 L13 11.2 Z" fill="#ffffff" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/></svg></span><div class="fd-ds cl-ds"><div class="de"><span>ΔE00</span><em class="de-blue">2.91</em></div><div class="row"><div class="chip" style="background:#f0ddc3"></div><table><tr><td>L</td><td>89.38</td><td class="diff">(−2.56)</td></tr><tr><td>a</td><td>3.53</td><td class="diff">(+0.73)</td></tr><tr><td>b</td><td>15.13</td><td class="diff">(+3.81)</td></tr></table></div></div></div></div>
+            <div class="cl-mini"><div class="fd-bar"><i></i><i></i><i></i>IMG_2071.jpg</div><div class="cl-ph"><img src="../assets/smile-guide.jpg" alt=""></div></div>
+          </div>
+          <div class="fd-compare cl-cmp">
+            <div class="fdc-title">Comparar</div>
+            <div class="fdc-labels"><span>Referência</span><span>Atual</span></div>
+            <div class="fdc-sw"><div style="background:#f4e5d2"></div><div class="fdc-cur" style="background:#f0ddc3"></div></div>
+            <table>
+              <tr><th></th><th>Ref</th><th>Dif.</th><th>Atual</th></tr>
+              <tr><td>L</td><td>91.94</td><td class="d">−2.56</td><td>89.38</td></tr>
+              <tr><td>a</td><td>2.80</td><td class="d">+0.73</td><td>3.53</td></tr>
+              <tr><td>b</td><td>11.32</td><td class="d">+3.81</td><td>15.13</td></tr>
+            </table>
+            <div class="fdc-de">ΔE00 <b class="de-blue">2.91</b></div>
+          </div>
+          <p class="fd-note good">As fotografias ficam lado a lado. Números só junto ao cursor</p>
+        </div>
+      </figure>
+    </div>
+    <div class="versus">
+      <div class="vs-card">
+        <span class="tag">Software comum de comparação de cores</span>
+        <ul>
+          <li>Preço elevado, uma barreira para começar</li>
+          <li>Ocupa grande parte do ecrã em cada caso</li>
+          <li>Pode ficar apertado ao trabalhar com muitas fotografias lado a lado</li>
+        </ul>
+      </div>
+      <div class="vs-card ours">
+        <span class="tag">DeltaShade</span>
+        <ul>
+          <li>Compra única, sem mensalidades</li>
+          <li>As fotografias continuam abertas no seu visualizador habitual. Os números aparecem só junto ao cursor</li>
+          <li>Trabalhe com fotografias de vários pacientes lado a lado</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cl-lead">Para a comparação de cores do dia a dia na escolha de cor, talvez não precise de software dedicado caro.</p>
+    <p class="cl-foot">* Afirmação sobre tendências gerais e ilustração. Não se refere a nenhum produto específico, e a ilustração não é um ecrã de nenhum produto específico.</p>
   </div>
 </section>
 

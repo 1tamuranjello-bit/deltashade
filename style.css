@@ -50,7 +50,7 @@ header.top { display: flex; justify-content: space-between; align-items: center;
 .brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand b { font-family: var(--display); font-size: 22px; letter-spacing: .02em; }
 .brand span { font-size: 12px; color: var(--muted); }
-nav.top { display: flex; gap: 20px; font-size: 14px; flex-wrap: wrap; }
+nav.top { display: flex; gap: 14px; font-size: 14px; flex-wrap: nowrap; white-space: nowrap; }
 nav.top a { color: var(--ink); text-decoration: none; }
 nav.top a:hover, nav.top a:focus-visible { color: var(--accent); }
 
@@ -405,8 +405,11 @@ header.top nav.top { margin-left: auto; }
 .v2-ring.go { animation: v2-ripple .7s ease-out; }
 @keyframes v2-ripple { 0% { opacity: 1; transform: scale(.6); } 100% { opacity: 0; transform: scale(2); } }
 /* メニューが 1 行に収まるよう、狭い幅では間隔と「ブランドの説明」を詰める */
-@media (max-width: 1040px) { nav.top { gap: 12px; font-size: 13px; white-space: nowrap; } .brand span { display: none; } header.top .langnav summary { white-space: nowrap; } }
-@media (max-width: 920px) { nav.top { gap: 9px; font-size: 12.5px; } }
+@media (max-width: 1360px) { nav.top { gap: 14px; white-space: nowrap; } .brand span { display: none; } }
+@media (max-width: 1100px) { nav.top { gap: 11px; font-size: 13px; } header.top .langnav summary { white-space: nowrap; } }
+@media (max-width: 960px) { nav.top { gap: 9px; font-size: 12.5px; } }
+@media (max-width: 900px) { nav.top { display: none; } }
+
 
 /* 日常の臨床向け：他のソフトとの違い */
 .cl-panel { margin: 0; min-width: 0; }

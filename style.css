@@ -454,3 +454,13 @@ header.top nav.top { margin-left: auto; }
 .cl-gfields span:nth-child(odd) { width: 86%; }
 /* 実物（幅 280pt）は画面の2割弱。文字がブラウザに拡大されないよう、普通の大きさで作ってから縮める */
 .cl-cmp { top: 4%; right: 3%; width: 34%; z-index: 7; transform: scale(.56); transform-origin: top right; }
+
+/* ---- ご購入後の案内ページ（thanks.html）と、手順の図 ---- */
+.fig { margin: 14px 0 0; }
+.fig svg { display: block; width: 100%; height: auto; }
+.fig figcaption { margin-top: 8px; font-size: 13px; color: var(--muted); }
+.keybox[hidden] { display: none; }
+.keybox h2 { font-size: 20px; }
+.keyrow { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+.keyrow code { flex: 1 1 280px; padding: 12px 14px; border: 1px dashed var(--accent); border-radius: 8px; background: var(--panel); color: var(--ink); font-family: var(--mono); font-size: 15px; word-break: break-all; user-select: all; }
+.keyrow .btn { cursor: pointer; }

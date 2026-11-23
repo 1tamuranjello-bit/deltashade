@@ -2,6 +2,26 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<script>
+(function () {
+  try {
+    var ua = navigator.userAgent || "";
+    if (navigator.webdriver || /bot|crawl|spider|slurp|facebookexternalhit|preview|lighthouse|headless|mediapartners|bingpreview|yandex|baidu|duckduck|embedly|quora|pinterest|whatsapp|telegram|discord|slack|twitter|linkedin/i.test(ua)) return;
+    try { if (localStorage.getItem("ds_lang")) return; } catch (e) {}
+    var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""], f = "en";
+    for (var i = 0; i < list.length; i++) {
+      var l = String(list[i]).toLowerCase();
+      if (!l) continue;
+      if (l.indexOf("ja") === 0) { f = ""; break; }
+      var m = l.indexOf("en") === 0 ? "en" : l.indexOf("de") === 0 ? "de" : l.indexOf("ko") === 0 ? "ko" : l.indexOf("es") === 0 ? "es"
+        : l === "pt-pt" ? "pt-pt" : l.indexOf("pt") === 0 ? "pt-br"
+        : (l === "zh-tw" || l === "zh-hk" || l === "zh-mo" || l.indexOf("zh-hant") === 0) ? "zh-hant" : l.indexOf("zh") === 0 ? "zh-hans" : null;
+      if (m) { f = m; break; }
+    }
+    if (f) location.replace(f + "/" + location.search + location.hash);
+  } catch (e) {}
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DeltaShade｜写真の歯の色を Lab と ΔE で比べる</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -43,7 +63,7 @@
       <a href="#price">価格</a>
       <a href="install.html">インストール方法</a>
     </nav>
-    <details class="langnav"><summary aria-label="言語"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 8h13M8 1.5c2 2 2.8 4.2 2.8 6.5S10 12.5 8 14.5M8 1.5C6 3.5 5.2 5.7 5.2 8S6 12.5 8 14.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>日本語</summary><ul><li><a href="index.html" lang="ja" hreflang="ja" aria-current="true">日本語</a></li><li><a href="en/index.html" lang="en" hreflang="en">English</a></li><li><a href="de/index.html" lang="de" hreflang="de">Deutsch</a></li><li><a href="ko/index.html" lang="ko" hreflang="ko">한국어</a></li><li><a href="zh-hans/index.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li><li><a href="zh-hant/index.html" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li><li><a href="pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></li><li><a href="pt-pt/index.html" lang="pt-PT" hreflang="pt-PT">Português (Portugal)</a></li><li><a href="es/index.html" lang="es" hreflang="es">Español</a></li></ul></details>
+    <details class="langnav"><summary aria-label="言語"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 8h13M8 1.5c2 2 2.8 4.2 2.8 6.5S10 12.5 8 14.5M8 1.5C6 3.5 5.2 5.7 5.2 8S6 12.5 8 14.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>日本語</summary><ul><li><a href="index.html" lang="ja" hreflang="ja" aria-current="true" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">日本語</a></li><li><a href="en/index.html" lang="en" hreflang="en" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">English</a></li><li><a href="de/index.html" lang="de" hreflang="de" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">Deutsch</a></li><li><a href="ko/index.html" lang="ko" hreflang="ko" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">한국어</a></li><li><a href="zh-hans/index.html" lang="zh-Hans" hreflang="zh-Hans" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">简体中文</a></li><li><a href="zh-hant/index.html" lang="zh-Hant" hreflang="zh-Hant" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">繁體中文</a></li><li><a href="pt-br/index.html" lang="pt-BR" hreflang="pt-BR" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">Português (Brasil)</a></li><li><a href="pt-pt/index.html" lang="pt-PT" hreflang="pt-PT" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">Português (Portugal)</a></li><li><a href="es/index.html" lang="es" hreflang="es" onclick="try{localStorage.setItem('ds_lang','1')}catch(e){}">Español</a></li></ul></details>
   </header>
 
   <section class="hero">

@@ -464,3 +464,12 @@ header.top nav.top { margin-left: auto; }
 .keyrow { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
 .keyrow code { flex: 1 1 280px; padding: 12px 14px; border: 1px dashed var(--accent); border-radius: 8px; background: var(--panel); color: var(--ink); font-family: var(--mono); font-size: 15px; word-break: break-all; user-select: all; }
 .keyrow .btn { cursor: pointer; }
+
+/* 体験版（14 日間無料） */
+.trial { margin-top: 32px; background: var(--surface); border: 1px solid var(--accent); border-radius: 10px; padding: 28px; }
+.trial h3 { margin: 0 0 8px; font-size: 22px; }
+.trial p { margin: 0; }
+.trial .cta-row { margin-top: 18px; }
+.trial-note { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: 12px 16px; font-size: 15px; margin-top: 16px; }
+.btn.line-accent { border: 2px solid var(--accent); }
+.cta-row2 { margin-top: 12px; }

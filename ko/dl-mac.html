@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>다운로드 | DeltaShade</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="../icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../style.css">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0dc8c28fed994f079bffd3166c8fbd10"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html"><b>DeltaShade</b><span>셰이드 비교 앱</span></a>
+  </header>
+
+  <!-- 体験版ダウンロードの中継ページ。ここが表示されたことが訪問者の集計に残り、そのあとファイルのダウンロードが始まる -->
+  <main class="guide">
+    <p class="eyebrow">Download</p>
+    <h1>Mac용 다운로드를 시작합니다</h1>
+    <p class="sub">몇 초가 지나도 시작되지 않으면 아래 버튼을 눌러 주세요. 파일은 보통 '다운로드' 폴더에 저장됩니다.</p>
+    <div class="g-choose">
+      <a class="btn ghost" id="dl" href="https://github.com/1tamuranjello-bit/deltashade/releases/latest/download/DeltaShade-Mac.dmg" rel="nofollow">다시 다운로드</a>
+    </div>
+    <h2 style="margin-top:40px">다음: 처음 열 때의 순서</h2>
+    <p>처음 열 때만 컴퓨터의 보안 확인 화면이 나옵니다. 안내 페이지의 2단계부터 진행해 주세요. 라이선스 창이 열리면 '체험판 사용'을 누르면 14일 동안 모든 기능을 쓸 수 있습니다.</p>
+    <div class="g-choose">
+      <a class="btn primary" href="install.html#mac">처음 열 때의 순서 보기</a>
+      <a class="btn ghost" href="index.html">제품 페이지로 돌아가기</a>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="row">
+      <span>© Owl Dental Create</span>
+      <nav aria-label="법적 정보">
+        <a href="../tokushoho.html">특정상거래법에 따른 표기 (일본어)</a>
+        <a href="../en/privacy.html">개인정보 처리방침 (영어)</a>
+        <a href="../en/terms.html">이용약관 (영어)</a>
+      </nav>
+    </div>
+    <p>Mac, macOS는 Apple Inc.의 상표입니다. Windows는 Microsoft Corporation의 상표입니다. Photoshop은 Adobe의 상표입니다. 기타 제품명은 각 회사의 상표입니다.</p>
+  </footer>
+</div>
+<script>
+/* 集計が送られるのを少し待ってから、ファイルのダウンロードを始める（このページはそのまま残る） */
+setTimeout(function () { location.href = document.getElementById("dl").href; }, 800);
+</script>
+</body>
+</html>

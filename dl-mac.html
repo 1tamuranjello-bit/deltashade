@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ダウンロード | DeltaShade</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0dc8c28fed994f079bffd3166c8fbd10"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="index.html"><b>DeltaShade</b><span>シェード比較アプリ</span></a>
+  </header>
+
+  <!-- 体験版ダウンロードの中継ページ。ここが表示されたことが訪問者の集計に残り、そのあとファイルのダウンロードが始まる -->
+  <main class="guide">
+    <p class="eyebrow">Download</p>
+    <h1>Mac 版のダウンロードを始めています</h1>
+    <p class="sub">数秒たっても始まらないときは、下のボタンを押してください。ダウンロードしたファイルは、ふつう「ダウンロード」フォルダに入ります。</p>
+    <div class="g-choose">
+      <a class="btn ghost" id="dl" href="https://github.com/1tamuranjello-bit/deltashade/releases/latest/download/DeltaShade-Mac.dmg" rel="nofollow">もう一度ダウンロードする</a>
+    </div>
+    <h2 style="margin-top:40px">次は、はじめて開くときの手順へ</h2>
+    <p>はじめて開くときだけ、パソコンの確認の画面が出ます。手順のページの「手順 2」から進めてください。ライセンスの窓が開いたら「体験版を使う」を押せば、14 日間そのまま使えます。</p>
+    <div class="g-choose">
+      <a class="btn primary" href="install.html#mac">はじめて開くときの手順を見る</a>
+      <a class="btn ghost" href="index.html">商品ページに戻る</a>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="row">
+      <span>© Owl Dental Create</span>
+      <nav aria-label="法的情報">
+        <a href="tokushoho.html">特定商取引法に基づく表記</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </nav>
+    </div>
+    <p>Mac、macOS は Apple Inc. の商標です。Windows は Microsoft Corporation の商標です。Photoshop は Adobe の商標です。その他の製品名は各社の商標です。</p>
+  </footer>
+</div>
+<script>
+/* 集計が送られるのを少し待ってから、ファイルのダウンロードを始める（このページはそのまま残る） */
+setTimeout(function () { location.href = document.getElementById("dl").href; }, 800);
+</script>
+</body>
+</html>
